@@ -1,0 +1,7 @@
+node_modules/
+dist/
+studio/dist/
+.DS_Store
+.claude/
+.agents/
+*.docx
