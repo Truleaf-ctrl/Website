@@ -520,12 +520,6 @@ export default function Home() {
             </li>
           </ol>
           <div className="buying-actions">
-            <Link to="/supply-chain" className="btn btn-brand">
-              See our process{' '}
-              <svg viewBox="0 0 16 16" fill="none">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-              </svg>
-            </Link>
             <Link to="/contact?enquiry=quote" className="btn btn-outline">
               Start an enquiry
             </Link>
