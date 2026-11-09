@@ -2355,15 +2355,15 @@ h1, h2, h3, p { margin: 0; }
 .blog-post__body h2,
 .blog-post__body h3,
 .blog-post__body h4 {
-  font-family: var(--font-display);
-  font-weight: 500;
+  font-family: var(--font-body);
+  font-weight: 600;
   color: var(--color-text-primary);
   margin-top: 8px;
 }
 
-.blog-post__body h2 { font-size: 28px; line-height: 1.25; }
-.blog-post__body h3 { font-size: 22px; line-height: 1.3; }
-.blog-post__body h4 { font-size: 18px; line-height: 1.35; }
+.blog-post__body h2 { font-size: 24px; line-height: 1.3; }
+.blog-post__body h3 { font-size: 20px; line-height: 1.35; }
+.blog-post__body h4 { font-size: 17px; line-height: 1.4; }
 
 .blog-post__body blockquote {
   margin: 0;
