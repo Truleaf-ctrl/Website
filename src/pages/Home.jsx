@@ -259,10 +259,10 @@ export default function Home() {
               <h3>Direct from the Source</h3>
               <p>
                 Partnering with certified organic farmers and trusted processors to deliver traceable, premium-quality
-                products to global markets.
+                products to global markets. Browse the full range in our catalogue.
               </p>
-              <Link to="/supply-chain" className="btn btn-glass sourcing-card-cta">
-                See how we source{' '}
+              <Link to="/catalogue" className="btn btn-glass sourcing-card-cta">
+                Explore our catalogue{' '}
                 <svg viewBox="0 0 16 16" fill="none">
                   <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
                 </svg>
