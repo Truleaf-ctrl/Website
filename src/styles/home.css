@@ -383,7 +383,8 @@
   .retail-inner{ max-width:var(--container-max); margin:0 auto; display:flex; flex-direction:column; gap:56px; }
   .retail-copy{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:16px; max-width:716px; margin:0 auto; }
   .retail .section-head-title{ max-width:none; font-size:36px; line-height:var(--lh-title); color:#1e1e1e; text-wrap:balance; }
-  .retail-copy p{ font-family:var(--font-body); font-size:16px; line-height:1.5; color:var(--text-secondary); max-width:560px; margin-bottom:8px; }
+  .retail-copy p{ font-family:var(--font-body); font-size:16px; line-height:1.5; color:var(--text-secondary); max-width:560px; }
+  .retail-actions{ display:flex; justify-content:center; margin-top:-16px; }
   .retail-points{ list-style:none; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; }
   .retail-points li{ background:var(--white); border:1px solid rgba(35,170,206,.25); border-radius:16px; padding:24px; display:flex; flex-direction:column; gap:8px; }
   .retail-points h3{ font-family:var(--font-body); font-weight:600; font-size:18px; line-height:1.3; color:#1e1e1e; }
