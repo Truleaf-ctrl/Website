@@ -105,12 +105,8 @@ export default function SupplyChain() {
           </div>
         </div>
 
-          <div className="supply-banner__visual" aria-hidden="true">
-            {BANNER_CARDS.slice(0, 4).map((c) => (
-              <figure key={c.src} className={`sb-card sb-card--${c.tone}`}>
-                <img src={c.src} alt="" />
-              </figure>
-            ))}
+          <div className="supply-banner__visual">
+            <img src="/assets/images/retail-hero-produce.jpg" alt="Fresh produce shelf: broccoli, cauliflower and cabbages in retail packs" />
           </div>
         </div>
       </header>
