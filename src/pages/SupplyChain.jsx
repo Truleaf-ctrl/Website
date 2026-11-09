@@ -12,12 +12,7 @@ import { sendForm } from '../lib/forms';
 
 const BRIEF_LABEL = 'Request a Callback';
 
-const BANNER_TILES = [
-  { src: '/assets/images/category-normalized/category-healthy-snacks.png', label: 'Healthy snacks' },
-  { src: '/assets/images/category-normalized/category-edible-oils.png', label: 'Edible oils' },
-  { src: '/assets/images/category-normalized/category-juices-purees.png', label: 'Juices & purees' },
-  { src: '/assets/images/category-normalized/category-ready-to-eat-products.png', label: 'Ready to eat' },
-];
+const BANNER_POINTS = ['R&D & formulation', 'Packaging & labels', 'Safety & compliance', 'Private-label production'];
 
 export default function SupplyChain() {
   usePage({
@@ -103,14 +98,14 @@ export default function SupplyChain() {
             </div>
           </div>
 
-          <div className="supply-banner__art" aria-hidden="true">
-            {BANNER_TILES.map((t) => (
-              <figure key={t.label} className="supply-banner__tile">
-                <img src={t.src} alt="" loading="eager" />
-                <figcaption>{t.label}</figcaption>
-              </figure>
+          <ul className="supply-banner__strip">
+            {BANNER_POINTS.map((t, i) => (
+              <li key={t}>
+                <span>{String(i + 1).padStart(2, '0')}</span>
+                {t}
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </header>
 
