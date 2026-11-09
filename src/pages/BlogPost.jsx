@@ -3,6 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import BlogCard from '../components/BlogCard';
+import ShareBar from '../components/ShareBar';
 import { InlineImage, portableTextNodes } from '../components/PortableText';
 import usePage from '../hooks/usePage';
 import useReveal, { revealAll } from '../hooks/useReveal';
@@ -126,6 +127,7 @@ export default function BlogPost() {
       <article className="blog-post">
         <div className="content-wrap blog-post__body reveal" id="postBody">
           {post && <PostBody post={post} />}
+          {post && <ShareBar title={post.title} />}
         </div>
       </article>
 
