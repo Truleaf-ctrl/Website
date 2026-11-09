@@ -69,7 +69,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          <span>© 2026 Truleaf Exports</span>
+          <span>© 2026 Truleaf Foods Private Limited</span>
           <span>All Rights Reserved</span>
         </div>
       </div>
