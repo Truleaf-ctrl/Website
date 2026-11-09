@@ -12,6 +12,15 @@ import { sendForm } from '../lib/forms';
 
 const BRIEF_LABEL = 'Request a Callback';
 
+const CAT = '/assets/images/category-normalized/category-';
+const BANNER_CARDS = [
+  { src: `${CAT}pickles-cornichons.png`, tone: 'green' },
+  { src: `${CAT}juices-purees.png`, tone: 'peach' },
+  { src: `${CAT}edible-oils.png`, tone: 'blue', caption: ['Private label', 'Shelf-ready', 'From formula to pack'] },
+  { src: `${CAT}healthy-snacks.png`, tone: 'cream' },
+  { src: `${CAT}ready-to-eat-products.png`, tone: 'lav' },
+];
+
 export default function SupplyChain() {
   usePage({
     title: 'Retail-Ready Product Development | Truleaf',
@@ -72,70 +81,43 @@ export default function SupplyChain() {
   return (
     <>
       <header className="supply-hero supply-hero--split">
-        <div className="supply-banner__nav">
-          <Nav />
-        </div>
-
-        <div className="supply-banner__art" aria-hidden="true">
-          <span className="supply-banner__word">RETAIL</span>
-          <img
-            className="sb-img sb-img--snacks"
-            src="/assets/images/category-normalized/category-healthy-snacks.png"
-            alt=""
-          />
-          <img
-            className="sb-img sb-img--oils"
-            src="/assets/images/category-normalized/category-edible-oils.png"
-            alt=""
-          />
-          <img
-            className="sb-img sb-img--juice"
-            src="/assets/images/category-normalized/category-juices-purees.png"
-            alt=""
-          />
-          <img
-            className="sb-img sb-img--meal"
-            src="/assets/images/category-normalized/category-ready-to-eat-products.png"
-            alt=""
-          />
-        </div>
+        <Nav />
 
         <div className="supply-banner__copy reveal">
           <p className="supply-banner__eyebrow">Retail to Business</p>
           <h1 className="supply-banner__title">
-            Got a product idea? We&apos;ll make it <em>retail-ready.</em>
+            Got a product idea?
+            <br />
+            We&apos;ll make it <em>retail-ready.</em>
           </h1>
           <p className="supply-banner__body">
             From bulk ingredient to shelf-ready pack: sourcing, formulation, compliance and private-label production,
             under one roof.
           </p>
           <div className="supply-banner__actions">
-            <a href="#supplyServices" className="supply-banner__spin" aria-label="Explore services">
-              <svg viewBox="0 0 160 160" aria-hidden="true">
-                <defs>
-                  <path id="spinCircle" d="M80,80 m-58,0 a58,58 0 1,1 116,0 a58,58 0 1,1 -116,0" />
-                </defs>
-                <text>
-                  <textPath href="#spinCircle" startOffset="0">
-                    EXPLORE SERVICES • EXPLORE SERVICES •
-                  </textPath>
-                </text>
-              </svg>
-              <span className="supply-banner__spin-core">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path
-                    d="M12 5v14M6 13l6 6 6-6"
-                    stroke="currentColor"
-                    strokeWidth="1.6"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </span>
-            </a>
-            <Link to="/contact" className="supply-banner__btn">
+            <Link to="/contact" className="supply-banner__btn supply-banner__btn--solid">
               Talk to Our Team
             </Link>
+            <a href="#supplyServices" className="supply-banner__btn supply-banner__btn--line">
+              Explore Services
+            </a>
+          </div>
+        </div>
+
+        <div className="supply-banner__strip" aria-hidden="true">
+          <div className="supply-banner__track">
+            {BANNER_CARDS.map((c) => (
+              <figure key={c.src} className={`sb-card sb-card--${c.tone}${c.caption ? ' sb-card--feature' : ''}`}>
+                <img src={c.src} alt="" />
+                {c.caption && (
+                  <figcaption>
+                    <span>{c.caption[0]}</span>
+                    <strong>{c.caption[1]}</strong>
+                    <small>{c.caption[2]}</small>
+                  </figcaption>
+                )}
+              </figure>
+            ))}
           </div>
         </div>
       </header>
