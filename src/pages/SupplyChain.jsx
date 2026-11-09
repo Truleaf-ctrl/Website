@@ -74,30 +74,29 @@ export default function SupplyChain() {
   return (
     <>
       <header className="supply-hero supply-hero--split">
-        <Nav />
+        <div className="supply-banner__nav">
+          <Nav />
+        </div>
 
-        <div className="supply-banner reveal">
-          <div className="supply-banner__copy">
-            <p className="supply-banner__eyebrow">Retail to Business</p>
-            <h1 className="supply-banner__title">
-              Got a product idea?
-              <br />
-              We&apos;ll make it <span style={{ whiteSpace: 'nowrap' }}>retail-ready.</span>
-            </h1>
-            <p className="supply-banner__body">
-              From bulk ingredient to shelf-ready pack: sourcing, formulation, compliance and private-label production,
-              under one roof.
-            </p>
-            <div className="supply-banner__actions">
-              <Link to="/contact" className="supply-banner__btn supply-banner__btn--solid">
-                Talk to Our Team
-              </Link>
-              <a href="#supplyServices" className="supply-banner__btn supply-banner__btn--line">
-                Explore Services
-              </a>
-            </div>
+        <div className="supply-banner__copy reveal">
+          <p className="supply-banner__eyebrow">Retail to Business</p>
+          <h1 className="supply-banner__title">
+            Got a product idea?
+            <br />
+            We&apos;ll make it <span style={{ whiteSpace: 'nowrap' }}>retail-ready.</span>
+          </h1>
+          <p className="supply-banner__body">
+            From bulk ingredient to shelf-ready pack: sourcing, formulation, compliance and private-label production,
+            under one roof.
+          </p>
+          <div className="supply-banner__actions">
+            <Link to="/contact" className="supply-banner__btn supply-banner__btn--solid">
+              Talk to Our Team
+            </Link>
+            <a href="#supplyServices" className="supply-banner__btn supply-banner__btn--line">
+              Explore Services
+            </a>
           </div>
-
           <ul className="supply-banner__strip">
             {BANNER_POINTS.map((t, i) => (
               <li key={t}>
@@ -107,6 +106,8 @@ export default function SupplyChain() {
             ))}
           </ul>
         </div>
+
+        <div className="supply-banner__photo" role="img" aria-label="Hands sorting fresh harvested produce"></div>
       </header>
 
       <section className="supply-process">

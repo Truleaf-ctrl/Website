@@ -3768,38 +3768,43 @@ h1, h2, h3, p { margin: 0; }
 #postTitle{ font-size:clamp(26px, 3.2vw, 40px); line-height:1.2; letter-spacing:-1px; max-width:900px; margin-left:auto; margin-right:auto; }
 @media (max-width:560px){ #postTitle{ font-size:24px; letter-spacing:-.5px; line-height:1.25; } }
 
-/* ---------- Retail to Business: full-width banner ---------- */
+/* ---------- Retail to Business: full-bleed split banner ---------- */
 .supply-hero--split {
-  padding: 44px clamp(16px, 4vw, 44px) 0;
-  min-height: min(760px, 92vh);
-  display: flex;
-  flex-direction: column;
-  background:
-    linear-gradient(95deg, rgba(14, 16, 48, 0.94) 0%, rgba(30, 34, 97, 0.82) 42%, rgba(39, 44, 125, 0.28) 100%),
-    url('/webimg/figma-sourcing.jpg') center / cover no-repeat;
+  --banner-pad: max(clamp(16px, 4vw, 44px), calc((100vw - var(--content-width)) / 2));
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 58fr) minmax(0, 42fr);
+  min-height: min(780px, 100vh);
+  padding: 0;
+  overflow: hidden;
+  background: #272c7d;
 }
-.supply-banner { flex: 1; width: 100%; max-width: var(--content-width); margin: 0 auto; display: flex; flex-direction: column; justify-content: space-between; gap: 56px; padding-top: 72px; }
-.supply-banner__copy { display: flex; flex-direction: column; align-items: flex-start; gap: 22px; max-width: 640px; color: #fff; }
+.supply-banner__nav { position: absolute; z-index: 5; top: 44px; left: 0; right: 0; padding: 0 clamp(16px, 4vw, 44px); }
+.supply-banner__copy { position: relative; isolation: isolate; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 22px; padding: 190px 56px 72px var(--banner-pad); color: #fff; background: linear-gradient(140deg, #2f35a0 0%, #272c7d 50%, #1d2166 100%); }
+.supply-banner__copy::before { content: ''; position: absolute; z-index: -1; width: 520px; height: 520px; left: -200px; bottom: -260px; border-radius: 50%; background: radial-gradient(circle at 40% 40%, rgba(35, 170, 206, 0.3), rgba(35, 170, 206, 0) 70%); }
 .supply-banner__eyebrow { font-family: var(--font-body); font-weight: 600; font-size: 12px; letter-spacing: 1.8px; text-transform: uppercase; color: #8fe0f5; display: inline-flex; align-items: center; gap: 10px; }
 .supply-banner__eyebrow::before { content: ''; width: 28px; height: 2px; border-radius: 2px; background: #8fe0f5; }
-.supply-banner__title { font-family: var(--font-display); font-weight: 500; font-size: clamp(34px, 4.6vw, 60px); line-height: 1.1; letter-spacing: -1px; color: #fff; }
-.supply-banner__body { font-family: var(--font-body); font-size: 17px; line-height: 1.6; color: rgba(255, 255, 255, 0.85); max-width: 520px; }
+.supply-banner__title { font-family: var(--font-display); font-weight: 500; font-size: clamp(32px, 4vw, 54px); line-height: 1.12; letter-spacing: -0.8px; color: #fff; }
+.supply-banner__body { font-family: var(--font-body); font-size: 17px; line-height: 1.6; color: rgba(255, 255, 255, 0.86); max-width: 500px; }
 .supply-banner__actions { display: flex; flex-wrap: wrap; gap: 12px; padding-top: 6px; }
 .supply-banner__btn { display: inline-flex; align-items: center; height: 50px; padding: 0 28px; border-radius: 999px; font-family: var(--font-body); font-weight: 600; font-size: 15px; transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease; }
 .supply-banner__btn--solid { background: #fff; color: var(--color-action-primary); }
 .supply-banner__btn--solid:hover { background: #ddf5fb; transform: translateY(-2px); }
-.supply-banner__btn--line { border: 1.5px solid rgba(255, 255, 255, 0.7); color: #fff; backdrop-filter: blur(6px); }
+.supply-banner__btn--line { border: 1.5px solid rgba(255, 255, 255, 0.7); color: #fff; }
 .supply-banner__btn--line:hover { background: rgba(255, 255, 255, 0.14); border-color: #fff; transform: translateY(-2px); }
 .supply-banner__btn:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
-.supply-banner__strip { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0 0 40px; padding: 0; border-top: 1px solid rgba(255, 255, 255, 0.28); }
-.supply-banner__strip li { display: flex; align-items: baseline; gap: 12px; padding: 22px 16px 0 0; font-family: var(--font-body); font-weight: 500; font-size: 16px; color: #fff; }
+.supply-banner__strip { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 32px; width: 100%; max-width: 520px; margin: 28px 0 0; padding: 22px 0 0; border-top: 1px solid rgba(255, 255, 255, 0.25); }
+.supply-banner__strip li { display: flex; align-items: baseline; gap: 12px; font-family: var(--font-body); font-weight: 500; font-size: 15px; color: #fff; }
 .supply-banner__strip li span { font-family: var(--font-display); font-size: 14px; color: #8fe0f5; }
+.supply-banner__photo { min-height: 320px; background: url('/webimg/harvest.jpg') center 30% / cover no-repeat; }
 @media (max-width: 960px) {
-  .supply-banner__strip { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 4px; }
+  .supply-hero--split { grid-template-columns: 1fr; min-height: 0; }
+  .supply-banner__copy { padding: 150px var(--banner-pad) 56px; }
+  .supply-banner__photo { min-height: 340px; }
 }
 @media (max-width: 720px) {
-  .supply-hero--split { padding: 24px 16px 0; min-height: 0; background: linear-gradient(180deg, rgba(14, 16, 48, 0.92) 0%, rgba(30, 34, 97, 0.85) 100%), url('/webimg/figma-sourcing.jpg') center / cover no-repeat; }
-  .supply-banner { padding-top: 48px; gap: 40px; }
-  .supply-banner__strip { margin-bottom: 28px; }
-  .supply-banner__strip li { font-size: 15px; padding-top: 16px; }
+  .supply-banner__nav { top: 24px; }
+  .supply-banner__copy { padding-top: 120px; }
+  .supply-banner__photo { min-height: 260px; }
+  .supply-banner__strip { grid-template-columns: 1fr; }
 }
