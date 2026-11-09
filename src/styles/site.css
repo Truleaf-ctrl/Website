@@ -3768,38 +3768,58 @@ h1, h2, h3, p { margin: 0; }
 #postTitle{ font-size:clamp(26px, 3.2vw, 40px); line-height:1.2; letter-spacing:-1px; max-width:900px; margin-left:auto; margin-right:auto; }
 @media (max-width:560px){ #postTitle{ font-size:24px; letter-spacing:-.5px; line-height:1.25; } }
 
-/* ---------- Retail to Business: full-bleed split banner ---------- */
+/* ---------- Retail to Business: editorial banner (pale band, product cluster, vertical word) ---------- */
 .supply-hero--split {
   --banner-pad: max(clamp(16px, 4vw, 44px), calc((100vw - var(--content-width)) / 2));
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 58fr) minmax(0, 42fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   min-height: min(780px, 100vh);
   padding: 0;
   overflow: hidden;
-  background: #272c7d;
+  background: #fbf9f3;
 }
-.supply-banner__nav { position: absolute; z-index: 5; top: 44px; left: 0; right: 0; padding: 0 clamp(16px, 4vw, 44px); }
-.supply-banner__copy { position: relative; isolation: isolate; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 22px; padding: 190px 56px 72px var(--banner-pad); color: #fff; background: #272c7d; }
-.supply-banner__eyebrow { font-family: var(--font-body); font-weight: 600; font-size: 12px; letter-spacing: 1.8px; text-transform: uppercase; color: #8fe0f5; display: inline-flex; align-items: center; gap: 10px; }
-.supply-banner__eyebrow::before { content: ''; width: 28px; height: 2px; border-radius: 2px; background: #8fe0f5; }
-.supply-banner__title { font-family: var(--font-display); font-weight: 500; font-size: clamp(26px, 2.8vw, 38px); line-height: 1.2; letter-spacing: -0.4px; color: #fff; }
-.supply-banner__body { font-family: var(--font-body); font-size: 16px; line-height: 1.6; color: rgba(255, 255, 255, 0.86); max-width: 500px; }
-.supply-banner__actions { display: flex; flex-wrap: wrap; gap: 12px; padding-top: 6px; }
-.supply-banner__btn { display: inline-flex; align-items: center; height: 50px; padding: 0 28px; border-radius: 999px; font-family: var(--font-body); font-weight: 600; font-size: 15px; transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease; }
-.supply-banner__btn--solid { background: #fff; color: var(--color-action-primary); }
-.supply-banner__btn--solid:hover { background: #ddf5fb; transform: translateY(-2px); }
-.supply-banner__btn--line { border: 1.5px solid rgba(255, 255, 255, 0.7); color: #fff; }
-.supply-banner__btn--line:hover { background: rgba(255, 255, 255, 0.14); border-color: #fff; transform: translateY(-2px); }
-.supply-banner__btn:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
-.supply-banner__photo { min-height: 320px; background: url('/webimg/harvest.jpg') center 30% / cover no-repeat; }
+.supply-banner__nav { position: absolute; z-index: 6; top: 44px; left: 0; right: 0; padding: 0 clamp(16px, 4vw, 44px); }
+.supply-banner__art { position: relative; min-height: 560px; }
+.supply-banner__art::before { content: ''; position: absolute; top: 0; bottom: 0; left: 16%; right: 0; background: #ddf5fb; }
+.supply-banner__word { position: absolute; z-index: 1; top: 130px; bottom: 20px; right: -2px; display: flex; align-items: center; writing-mode: vertical-rl; font-family: var(--font-body); font-weight: 800; font-size: clamp(88px, 10vw, 140px); line-height: 0.9; letter-spacing: 2px; color: #fbf9f3; user-select: none; }
+.sb-img { position: absolute; z-index: 2; height: auto; filter: drop-shadow(0 18px 24px rgba(39, 44, 125, 0.22)); }
+.sb-img--snacks { width: 46%; left: 6%; bottom: 4%; }
+.sb-img--oils { width: 42%; left: 34%; bottom: 20%; z-index: 3; }
+.sb-img--juice { width: 38%; left: 12%; bottom: 40%; z-index: 1; }
+.sb-img--meal { width: 36%; left: 40%; bottom: 2%; z-index: 4; }
+.supply-banner__copy { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 20px; padding: 150px var(--banner-pad) 72px 40px; }
+.supply-banner__eyebrow { font-family: var(--font-body); font-weight: 600; font-size: 12px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--color-action-primary); display: inline-flex; align-items: center; gap: 10px; }
+.supply-banner__eyebrow::before { content: ''; width: 28px; height: 2px; border-radius: 2px; background: var(--color-brand-accent); }
+.supply-banner__title { font-family: var(--font-display); font-weight: 500; font-size: clamp(28px, 3vw, 42px); line-height: 1.2; letter-spacing: -0.5px; color: #1e1e1e; max-width: 560px; }
+.supply-banner__title em { font-style: normal; color: var(--color-brand-accent); white-space: nowrap; }
+.supply-banner__body { font-family: var(--font-body); font-size: 16px; line-height: 1.65; color: var(--color-text-secondary); max-width: 480px; }
+.supply-banner__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; padding-top: 12px; }
+.supply-banner__spin { position: relative; width: 140px; height: 140px; border-radius: 50%; background: #ddf5fb; color: var(--color-action-primary); display: grid; place-items: center; transition: transform 0.3s ease; }
+.supply-banner__spin:hover { transform: translateY(3px); }
+.supply-banner__spin > svg { position: absolute; inset: 0; width: 100%; height: 100%; animation: sbSpin 22s linear infinite; }
+.supply-banner__spin text { font-family: var(--font-body); font-weight: 600; font-size: 13px; letter-spacing: 2.4px; fill: currentColor; }
+.supply-banner__spin-core { position: relative; width: 56px; height: 56px; border-radius: 50%; background: #fff; display: grid; place-items: center; }
+.supply-banner__spin-core svg { width: 22px; height: 22px; }
+.supply-banner__btn { display: inline-flex; align-items: center; height: 50px; padding: 0 28px; border-radius: 999px; background: var(--color-action-primary); color: #fff; font-family: var(--font-body); font-weight: 600; font-size: 15px; transition: transform 0.25s ease, background 0.25s ease; }
+.supply-banner__btn:hover { background: #363cab; transform: translateY(-2px); }
+.supply-banner__btn:focus-visible, .supply-banner__spin:focus-visible { outline: 2px solid var(--color-action-primary); outline-offset: 4px; }
+@keyframes sbSpin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .supply-banner__spin > svg { animation: none; } }
 @media (max-width: 960px) {
   .supply-hero--split { grid-template-columns: 1fr; min-height: 0; }
-  .supply-banner__copy { padding: 150px var(--banner-pad) 56px; }
-  .supply-banner__photo { min-height: 340px; }
+  .supply-banner__copy { order: 1; padding: 140px var(--banner-pad) 40px; }
+  .supply-banner__art { order: 2; min-height: 420px; }
+  .supply-banner__art::before { left: 0; }
+  .supply-banner__word { display: none; }
+  .sb-img--snacks { width: 42%; left: 8%; }
+  .sb-img--oils { width: 38%; left: 36%; }
+  .sb-img--juice { width: 34%; left: 54%; bottom: 36%; }
+  .sb-img--meal { width: 32%; left: 60%; }
 }
 @media (max-width: 720px) {
   .supply-banner__nav { top: 24px; }
   .supply-banner__copy { padding-top: 120px; }
-  .supply-banner__photo { min-height: 260px; }
-  }
+  .supply-banner__art { min-height: 340px; }
+  .supply-banner__spin { width: 116px; height: 116px; }
+}
