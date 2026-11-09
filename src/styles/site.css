@@ -3793,9 +3793,6 @@ h1, h2, h3, p { margin: 0; }
 .supply-banner__btn--line { border: 1.5px solid rgba(255, 255, 255, 0.7); color: #fff; }
 .supply-banner__btn--line:hover { background: rgba(255, 255, 255, 0.14); border-color: #fff; transform: translateY(-2px); }
 .supply-banner__btn:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
-.supply-banner__strip { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 32px; width: 100%; max-width: 520px; margin: 28px 0 0; padding: 22px 0 0; border-top: 1px solid rgba(255, 255, 255, 0.25); }
-.supply-banner__strip li { display: flex; align-items: baseline; gap: 12px; font-family: var(--font-body); font-weight: 500; font-size: 15px; color: #fff; }
-.supply-banner__strip li span { font-family: var(--font-display); font-size: 14px; color: #8fe0f5; }
 .supply-banner__photo { min-height: 320px; background: url('/webimg/harvest.jpg') center 30% / cover no-repeat; }
 @media (max-width: 960px) {
   .supply-hero--split { grid-template-columns: 1fr; min-height: 0; }
@@ -3806,5 +3803,4 @@ h1, h2, h3, p { margin: 0; }
   .supply-banner__nav { top: 24px; }
   .supply-banner__copy { padding-top: 120px; }
   .supply-banner__photo { min-height: 260px; }
-  .supply-banner__strip { grid-template-columns: 1fr; }
-}
+  }

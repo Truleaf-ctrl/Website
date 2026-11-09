@@ -12,8 +12,6 @@ import { sendForm } from '../lib/forms';
 
 const BRIEF_LABEL = 'Request a Callback';
 
-const BANNER_POINTS = ['R&D & formulation', 'Packaging & labels', 'Safety & compliance', 'Private-label production'];
-
 export default function SupplyChain() {
   usePage({
     title: 'Retail-Ready Product Development | Truleaf',
@@ -97,14 +95,6 @@ export default function SupplyChain() {
               Explore Services
             </a>
           </div>
-          <ul className="supply-banner__strip">
-            {BANNER_POINTS.map((t, i) => (
-              <li key={t}>
-                <span>{String(i + 1).padStart(2, '0')}</span>
-                {t}
-              </li>
-            ))}
-          </ul>
         </div>
 
         <div className="supply-banner__photo" role="img" aria-label="Hands sorting fresh harvested produce"></div>
