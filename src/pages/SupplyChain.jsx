@@ -106,7 +106,7 @@ export default function SupplyChain() {
         </div>
 
           <div className="supply-banner__visual">
-            <img src="/assets/images/retail-hero-produce.jpg" alt="Fresh produce shelf: broccoli, cauliflower and cabbages in retail packs" />
+            <img src="/assets/images/retail-hero-packed.jpg" alt="Packed food ready for retail: bottled water, bagged pasta and canned goods" />
           </div>
         </div>
       </header>
