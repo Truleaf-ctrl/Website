@@ -3787,8 +3787,8 @@ h1, h2, h3, p { margin: 0; }
 .supply-banner__strip::before { top: 0; border-radius: 0 0 50% 50% / 0 0 100% 100%; }
 .supply-banner__strip::after { bottom: 0; border-radius: 50% 50% 0 0 / 100% 100% 0 0; }
 .supply-banner__track { position: relative; display: flex; align-items: center; gap: 16px; width: max-content; left: calc(50% - var(--cw) / 2 - 7 * (var(--cw) + 16px)); transform-style: preserve-3d; will-change: transform; }
-.sb-card { position: relative; flex: 0 0 auto; width: var(--cw); height: 400px; margin: 0; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; will-change: transform; }
-.sb-card img { width: 78%; height: auto; margin-bottom: 36px; filter: drop-shadow(0 14px 18px rgba(39, 44, 125, 0.18)); }
+.sb-card { position: relative; flex: 0 0 auto; width: var(--cw); height: 400px; margin: 0; border-radius: 6px; overflow: hidden; border: 2px solid var(--color-action-primary); box-sizing: border-box; display: flex; align-items: center; justify-content: center; will-change: transform; }
+.sb-card img { width: 78%; height: auto; margin-bottom: 0; filter: drop-shadow(0 14px 18px rgba(39, 44, 125, 0.18)); }
 .sb-card--green { background: #e6efdf; }
 .sb-card--peach { background: #fbeadf; }
 .sb-card--blue { background: #d9f1f9; }

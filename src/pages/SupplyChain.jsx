@@ -152,7 +152,6 @@ export default function SupplyChain() {
               BANNER_CARDS.map((c) => (
                 <figure key={`${copy}-${c.src}`} className={`sb-card sb-card--${c.tone}`}>
                   <img src={c.src} alt="" />
-                  <figcaption>{c.label}</figcaption>
                 </figure>
               ))
             )}
