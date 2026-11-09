@@ -12,6 +12,13 @@ import { sendForm } from '../lib/forms';
 
 const BRIEF_LABEL = 'Request a Callback';
 
+const BANNER_TILES = [
+  { src: '/assets/images/category-normalized/category-healthy-snacks.png', label: 'Healthy snacks' },
+  { src: '/assets/images/category-normalized/category-edible-oils.png', label: 'Edible oils' },
+  { src: '/assets/images/category-normalized/category-juices-purees.png', label: 'Juices & purees' },
+  { src: '/assets/images/category-normalized/category-ready-to-eat-products.png', label: 'Ready to eat' },
+];
+
 export default function SupplyChain() {
   usePage({
     title: 'Retail-Ready Product Development | Truleaf',
@@ -71,24 +78,38 @@ export default function SupplyChain() {
 
   return (
     <>
-      <header className="supply-hero">
+      <header className="supply-hero supply-hero--split">
         <Nav />
 
-        <div className="supply-hero__content reveal">
-          <p className="supply-hero__eyebrow">PRIVATE LABEL</p>
-          <h1 className="supply-hero__title">
-            Got a Product Idea?
-            <br />
-            We'll Make It Retail-Ready.
-          </h1>
-          <p className="supply-hero__body">
-            From bulk ingredient to shelf-ready pack, sourcing, formulation, compliance and private-label production,
-            under one roof.
-          </p>
-          <div className="supply-hero__cta-row">
-            <Link to="/contact" className="btn btn--ghost">
-              Talk to Our Team <img src="/assets/icons/arrow-right.svg" alt="" />
-            </Link>
+        <div className="supply-banner reveal">
+          <div className="supply-banner__copy">
+            <p className="supply-banner__eyebrow">Retail to Business</p>
+            <h1 className="supply-banner__title">
+              Got a product idea?
+              <br />
+              We&apos;ll make it <span style={{ whiteSpace: 'nowrap' }}>retail-ready.</span>
+            </h1>
+            <p className="supply-banner__body">
+              From bulk ingredient to shelf-ready pack: sourcing, formulation, compliance and private-label production,
+              under one roof.
+            </p>
+            <div className="supply-banner__actions">
+              <Link to="/contact" className="supply-banner__btn supply-banner__btn--solid">
+                Talk to Our Team
+              </Link>
+              <a href="#supplyServices" className="supply-banner__btn supply-banner__btn--line">
+                Explore Services
+              </a>
+            </div>
+          </div>
+
+          <div className="supply-banner__art" aria-hidden="true">
+            {BANNER_TILES.map((t) => (
+              <figure key={t.label} className="supply-banner__tile">
+                <img src={t.src} alt="" loading="eager" />
+                <figcaption>{t.label}</figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </header>
@@ -184,7 +205,7 @@ export default function SupplyChain() {
         </div>
       </section>
 
-      <section className="supply-handle">
+      <section className="supply-handle" id="supplyServices">
         <div className="content-wrap">
           <div className="supply-handle__intro reveal">
             <p className="supply-eyebrow">END-TO-END SUPPORT</p>
