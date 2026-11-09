@@ -527,6 +527,43 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="retail" id="retail">
+        <div className="retail-inner">
+          <div className="retail-copy">
+            <span className="section-eyebrow">Retail to Business</span>
+            <h2 className="section-head-title">Got a product idea? We&apos;ll make it retail-ready.</h2>
+            <p>
+              From bulk ingredient to shelf-ready pack: sourcing, formulation, compliance and private-label production,
+              under one roof.
+            </p>
+            <Link to="/supply-chain" className="btn btn-brand">
+              Explore private label{' '}
+              <svg viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+              </svg>
+            </Link>
+          </div>
+          <ul className="retail-points">
+            <li>
+              <h3>R&amp;D &amp; formulation</h3>
+              <p>Develop your recipe with our food scientists, or work from your own specification.</p>
+            </li>
+            <li>
+              <h3>Packaging &amp; labels</h3>
+              <p>Retail-ready pack design and label compliance for your target market.</p>
+            </li>
+            <li>
+              <h3>Safety &amp; compliance</h3>
+              <p>Third-party audits and accredited lab testing at every stage.</p>
+            </li>
+            <li>
+              <h3>Private-label production</h3>
+              <p>Traceable supply from origin to delivery, with account support after launch.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
       <section className="impact">
         <div className="impact-inner">
           <div className="impact-figure" id="impactFigure">
