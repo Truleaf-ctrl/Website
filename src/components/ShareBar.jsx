@@ -8,10 +8,6 @@ const ICONS = {
     'M13.5 21.95v-8.2h2.75l.42-3.2H13.5V8.5c0-.93.26-1.55 1.58-1.55h1.69V4.09c-.29-.04-1.29-.12-2.46-.12-2.43 0-4.1 1.48-4.1 4.2v2.38H7.45v3.2h2.76v8.2z',
   instagram:
     'M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85s.01-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z',
-  share:
-    'M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z',
-  close:
-    'M18.3 5.71a1 1 0 00-1.41 0L12 10.59 7.11 5.7A1 1 0 105.7 7.11L10.59 12 5.7 16.89a1 1 0 101.41 1.41L12 13.41l4.89 4.89a1 1 0 001.41-1.41L13.41 12l4.89-4.89a1 1 0 000-1.4z',
   link: 'M10.59 13.41a1 1 0 010-1.41l3-3a3 3 0 114.24 4.24l-1.5 1.5-1.42-1.41 1.5-1.5a1 1 0 10-1.41-1.42l-3 3a1 1 0 01-1.41 0zm2.82-2.82a1 1 0 010 1.41l-3 3a3 3 0 11-4.24-4.24l1.5-1.5 1.42 1.41-1.5 1.5a1 1 0 101.41 1.42l3-3a1 1 0 011.41 0z',
 };
 
@@ -52,28 +48,9 @@ async function copyText(text) {
 }
 
 export default function ShareBar({ title, variant }) {
-  const [isOpen, setIsOpen] = useState(false);
   const [note, setNote] = useState('');
   const timer = useRef(0);
-  const closeRef = useRef(null);
-  const triggerRef = useRef(null);
-
   useEffect(() => () => clearTimeout(timer.current), []);
-
-  useEffect(() => {
-    if (!isOpen) return undefined;
-    const onKey = (e) => e.key === 'Escape' && setIsOpen(false);
-    document.addEventListener('keydown', onKey);
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    closeRef.current?.focus();
-    const trigger = triggerRef.current;
-    return () => {
-      document.removeEventListener('keydown', onKey);
-      document.body.style.overflow = prevOverflow;
-      trigger?.focus();
-    };
-  }, [isOpen]);
 
   const flash = (msg) => {
     setNote(msg);
@@ -83,6 +60,7 @@ export default function ShareBar({ title, variant }) {
 
   const url = () => window.location.href.split('#')[0];
   const enc = encodeURIComponent;
+
   const open = (href) => window.open(href, '_blank', 'noopener,noreferrer,width=640,height=640');
 
   const onCopy = async () => flash((await copyText(url())) ? 'Link copied' : 'Could not copy link');
@@ -94,70 +72,44 @@ export default function ShareBar({ title, variant }) {
     window.open('https://www.instagram.com/', '_blank', 'noopener,noreferrer');
   };
 
-  const options = [
-    {
-      key: 'linkedin',
-      label: 'LinkedIn',
-      run: () => open(`https://www.linkedin.com/sharing/share-offsite/?url=${enc(url())}`),
-    },
-    {
-      key: 'x',
-      label: 'X',
-      run: () => open(`https://twitter.com/intent/tweet?url=${enc(url())}&text=${enc(title || '')}`),
-    },
-    { key: 'instagram', label: 'Instagram', run: onInstagram },
-    {
-      key: 'facebook',
-      label: 'Facebook',
-      run: () => open(`https://www.facebook.com/sharer/sharer.php?u=${enc(url())}`),
-    },
-    { key: 'link', label: 'Copy link', run: onCopy },
-  ];
-
   return (
     <div className={`share-bar${variant ? ` share-bar--${variant}` : ''}`}>
-      <button
-        ref={triggerRef}
-        type="button"
-        className="share-bar__trigger"
-        aria-haspopup="dialog"
-        onClick={() => setIsOpen(true)}
-      >
-        <Icon name="share" />
-        <span>Share</span>
-      </button>
-
-      {isOpen && (
-        <div className="share-modal" onMouseDown={(e) => e.target === e.currentTarget && setIsOpen(false)}>
-          <div className="share-modal__panel" role="dialog" aria-modal="true" aria-labelledby="shareModalTitle">
-            <div className="share-modal__head">
-              <h3 id="shareModalTitle">Share this article</h3>
-              <button
-                ref={closeRef}
-                type="button"
-                className="share-modal__close"
-                aria-label="Close"
-                onClick={() => setIsOpen(false)}
-              >
-                <Icon name="close" />
-              </button>
-            </div>
-            <div className="share-modal__list">
-              {options.map((o) => (
-                <button key={o.key} type="button" className="share-modal__option" onClick={o.run}>
-                  <span className="share-modal__icon">
-                    <Icon name={o.key} />
-                  </span>
-                  <span>{o.label}</span>
-                </button>
-              ))}
-            </div>
-            <p className="share-modal__note" role="status" aria-live="polite">
-              {note}
-            </p>
-          </div>
-        </div>
-      )}
+      <span className="share-bar__label">Share this article</span>
+      <div className="share-bar__buttons">
+        <button
+          type="button"
+          className="share-bar__btn"
+          aria-label="Share on LinkedIn"
+          onClick={() => open(`https://www.linkedin.com/sharing/share-offsite/?url=${enc(url())}`)}
+        >
+          <Icon name="linkedin" />
+        </button>
+        <button
+          type="button"
+          className="share-bar__btn"
+          aria-label="Share on X"
+          onClick={() => open(`https://twitter.com/intent/tweet?url=${enc(url())}&text=${enc(title || '')}`)}
+        >
+          <Icon name="x" />
+        </button>
+        <button type="button" className="share-bar__btn" aria-label="Share on Instagram" onClick={onInstagram}>
+          <Icon name="instagram" />
+        </button>
+        <button
+          type="button"
+          className="share-bar__btn"
+          aria-label="Share on Facebook"
+          onClick={() => open(`https://www.facebook.com/sharer/sharer.php?u=${enc(url())}`)}
+        >
+          <Icon name="facebook" />
+        </button>
+        <button type="button" className="share-bar__btn" aria-label="Copy link" onClick={onCopy}>
+          <Icon name="link" />
+        </button>
+      </div>
+      <span className="share-bar__note" role="status" aria-live="polite">
+        {note}
+      </span>
     </div>
   );
 }
