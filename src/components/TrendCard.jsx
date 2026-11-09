@@ -1,9 +1,17 @@
 import { Link } from 'react-router-dom';
 
 // Shared trend-card tile (styles: trend-card.css). Used by the home page's Trending Products.
-export default function TrendCard({ name, category, imageUrl, href }) {
+// `onClick` lets a card open the product overlay instead of navigating.
+export default function TrendCard({ name, category, imageUrl, href, onClick }) {
+  const handleClick = onClick
+    ? (e) => {
+        e.preventDefault();
+        onClick();
+      }
+    : undefined;
+
   return (
-    <Link to={href || '/catalogue'} className="trend-card">
+    <Link to={href || '/catalogue'} className="trend-card" onClick={handleClick}>
       <div className="trend-card__image">
         <img src={imageUrl || ''} alt={name || ''} />
       </div>

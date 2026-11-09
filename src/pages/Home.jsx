@@ -17,6 +17,7 @@ import {
 } from '../hooks/useHomeAnimations';
 import { PRODUCT_LISTING_URL, sanityFetch, urlForImageRef } from '../lib/sanity';
 import { HOME_CSS } from '../styles/home';
+import { useProductOverlay } from '../context/ProductOverlay';
 
 const TITLE = 'Truleaf | Organic Fruit, Vegetable & Ingredient Exporter from India';
 const DESCRIPTION =
@@ -80,6 +81,7 @@ function MissionTitle({ split }) {
 
 export default function Home() {
   usePage({ title: TITLE, description: DESCRIPTION, path: '/', css: HOME_CSS });
+  const { openProduct } = useProductOverlay();
 
   /* featured categories + trending products: both lists come from Sanity (admin controls them in the Studio);
      each shows at most 4, lowest display order first */
@@ -95,7 +97,7 @@ export default function Home() {
       .then((cats) => alive && setCategories(cats || []))
       .catch((err) => console.error('Could not load categories from Sanity', err));
     const loadProducts = sanityFetch(
-      `*[_type=="product" && featured==true] | order(order asc)[0...4]{name, category, "imageRef": image.asset._ref}`
+      `*[_type=="product" && featured==true] | order(order asc)[0...4]{name, category, grade, "categorySlug": parentCategory->slug.current, shortDescription, description, botanicalName, sourcedFrom, packaging, gradeDetails, sizeChart, shelfLife, storage, certifications, "imageRef": image.asset._ref}`
     )
       .then((items) => alive && setProducts(items || []))
       .catch((err) => console.error('Could not load products from Sanity', err));
@@ -453,6 +455,24 @@ export default function Home() {
                 category={p.category}
                 imageUrl={urlForImageRef(p.imageRef)}
                 href="/catalogue"
+                onClick={() =>
+                  openProduct({
+                    productName: p.name,
+                    productCategory: p.category,
+                    productGrade: p.grade,
+                    productCategorySlug: p.categorySlug,
+                    productImage: urlForImageRef(p.imageRef),
+                    productBotanical: p.botanicalName,
+                    productSourced: p.sourcedFrom,
+                    productDesc: p.description || p.shortDescription,
+                    productPackaging: p.packaging,
+                    productGrades: p.gradeDetails,
+                    productChart: p.sizeChart || [],
+                    productShelf: p.shelfLife,
+                    productStorage: p.storage,
+                    productCerts: (p.certifications || []).join(', '),
+                  })
+                }
               />
             ))}
           </div>

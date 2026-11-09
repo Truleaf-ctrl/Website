@@ -7,5 +7,6 @@ import trendCard from './trend-card.css?inline';
 import footer from './footer.css?inline';
 import motion from './motion.css?inline';
 import site from './site.css?inline';
+import overlay from './overlay.css?inline';
 
-export const SITE_CSS = [categoryCard, trendCard, site, footer, motion].join('\n');
+export const SITE_CSS = [categoryCard, trendCard, site, overlay, footer, motion].join('\n');
