@@ -36,8 +36,38 @@ export function InlineImage({ src, alt = '' }) {
 }
 
 // Groups list items into <ul>/<ol> and returns one React node per top-level block.
-export function portableTextNodes(blocks) {
+const isBoldLine = (b) =>
+  b &&
+  b._type === 'block' &&
+  !b.listItem &&
+  (b.style || 'normal') === 'normal' &&
+  (b.children || []).some((c) => (c.text || '').trim()) &&
+  (b.children || []).every((c) => !(c.text || '').trim() || (c.marks || []).includes('strong'));
+
+// A closing call-to-action ("Looking for ...?" in bold, followed by a line or two) is set apart as a breaker.
+function findCtaStart(blocks) {
+  for (let i = blocks.length - 2; i >= Math.max(1, blocks.length - 4); i -= 1) {
+    if (isBoldLine(blocks[i]) && blocks.slice(i + 1).every((b) => b._type === 'block' && !b.listItem)) return i;
+  }
+  return -1;
+}
+
+export function portableTextNodes(blocks, { cta = true } = {}) {
   if (!Array.isArray(blocks)) return [];
+  const ctaStart = cta ? findCtaStart(blocks) : -1;
+  if (ctaStart > 0) {
+    return [
+      ...portableTextNodes(blocks.slice(0, ctaStart), { cta: false }),
+      {
+        kind: 'cta',
+        node: (
+          <aside key="post-cta" className="blog-post__cta">
+            {portableTextNodes(blocks.slice(ctaStart), { cta: false }).map((n) => n.node)}
+          </aside>
+        ),
+      },
+    ];
+  }
   const nodes = [];
   let list = null; // { type, items: [] }
 

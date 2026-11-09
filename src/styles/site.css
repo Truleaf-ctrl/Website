@@ -4294,3 +4294,11 @@ h1, h2, h3, p { margin: 0; }
 .share-bar__note{ font-size:14px; color:var(--color-text-secondary); min-height:20px; }
 .share-bar--hero{ justify-content:center; margin:24px 0 0; padding:0; border:0; }
 .share-bar--hero .share-bar__note{ min-height:0; }
+
+/* Closing call-to-action breaker at the end of an article */
+.blog-post__body .blog-post__cta{ margin-top:24px; padding:36px 40px; border-radius:20px; background:var(--color-action-primary); color:#fff; display:flex; flex-direction:column; gap:12px; }
+.blog-post__body .blog-post__cta p{ color:rgba(255,255,255,.9); margin:0; }
+.blog-post__body .blog-post__cta p:first-child{ font-family:var(--font-body); font-size:22px; line-height:1.3; color:#fff; }
+.blog-post__body .blog-post__cta a{ color:#fff; text-decoration:underline; text-underline-offset:3px; font-weight:600; }
+.blog-post__body .blog-post__cta a:hover{ color:var(--color-brand-accent); }
+@media (max-width:560px){ .blog-post__body .blog-post__cta{ padding:28px 24px; } .blog-post__body .blog-post__cta p:first-child{ font-size:19px; } }
