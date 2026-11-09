@@ -14,8 +14,8 @@ const ICONS = {
 function Icon({ name }) {
   return (
     <svg
-      width={name === 'link' ? 24 : 18}
-      height={name === 'link' ? 24 : 18}
+      width={name === 'link' ? 20 : 15}
+      height={name === 'link' ? 20 : 15}
       viewBox="0 0 24 24"
       fill="currentColor"
       aria-hidden="true"
