@@ -14,14 +14,56 @@ const BRIEF_LABEL = 'Request a Callback';
 
 const CAT = '/assets/images/category-normalized/category-';
 const BANNER_CARDS = [
-  { src: `${CAT}pickles-cornichons.png`, tone: 'green' },
-  { src: `${CAT}juices-purees.png`, tone: 'peach' },
-  { src: `${CAT}edible-oils.png`, tone: 'blue', caption: ['Private label', 'Shelf-ready', 'From formula to pack'] },
-  { src: `${CAT}healthy-snacks.png`, tone: 'cream' },
-  { src: `${CAT}ready-to-eat-products.png`, tone: 'lav' },
+  { src: `${CAT}pickles-cornichons.png`, tone: 'green', label: 'Pickles & preserves' },
+  { src: `${CAT}juices-purees.png`, tone: 'peach', label: 'Juices & purees' },
+  { src: `${CAT}edible-oils.png`, tone: 'blue', label: 'Edible oils' },
+  { src: `${CAT}healthy-snacks.png`, tone: 'cream', label: 'Healthy snacks' },
+  { src: `${CAT}ready-to-eat-products.png`, tone: 'lav', label: 'Ready to eat' },
 ];
 
 export default function SupplyChain() {
+  const trackRef = useRef(null);
+
+  // Scroll-driven carousel: the product cards slide as the page scrolls (looping) and tilt toward the centre.
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return undefined;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const cards = Array.from(track.children);
+    const perCopy = cards.length / 3;
+    let frame = 0;
+
+    const update = () => {
+      frame = 0;
+      const first = cards[0];
+      if (!first) return;
+      const pitch = first.offsetWidth + 16;
+      const loop = pitch * perCopy;
+      const shift = reduced ? 0 : -((window.scrollY * 0.5) % loop);
+      track.style.transform = `translateX(${shift}px)`;
+      const centre = window.innerWidth / 2;
+      cards.forEach((card) => {
+        const rect = card.getBoundingClientRect();
+        const d = (rect.left + rect.width / 2 - centre) / (window.innerWidth / 2);
+        const clamped = Math.max(-1.4, Math.min(1.4, d));
+        card.style.transform = reduced
+          ? ''
+          : `rotateY(${(-clamped * 26).toFixed(2)}deg) scale(${(1 - Math.abs(clamped) * 0.06).toFixed(3)})`;
+      });
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, []);
+
   usePage({
     title: 'Retail-Ready Product Development | Truleaf',
     description:
@@ -105,19 +147,15 @@ export default function SupplyChain() {
         </div>
 
         <div className="supply-banner__strip" aria-hidden="true">
-          <div className="supply-banner__track">
-            {BANNER_CARDS.map((c) => (
-              <figure key={c.src} className={`sb-card sb-card--${c.tone}${c.caption ? ' sb-card--feature' : ''}`}>
-                <img src={c.src} alt="" />
-                {c.caption && (
-                  <figcaption>
-                    <span>{c.caption[0]}</span>
-                    <strong>{c.caption[1]}</strong>
-                    <small>{c.caption[2]}</small>
-                  </figcaption>
-                )}
-              </figure>
-            ))}
+          <div className="supply-banner__track" ref={trackRef}>
+            {[0, 1, 2].flatMap((copy) =>
+              BANNER_CARDS.map((c) => (
+                <figure key={`${copy}-${c.src}`} className={`sb-card sb-card--${c.tone}`}>
+                  <img src={c.src} alt="" />
+                  <figcaption>{c.label}</figcaption>
+                </figure>
+              ))
+            )}
           </div>
         </div>
       </header>
