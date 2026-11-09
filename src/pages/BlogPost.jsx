@@ -117,6 +117,7 @@ export default function BlogPost() {
               {post?.readTime || ''}
             </span>
           </div>
+          {post && <ShareBar title={post.title} variant="hero" />}
         </div>
       </header>
 
@@ -126,7 +127,6 @@ export default function BlogPost() {
 
       <article className="blog-post">
         <div className="content-wrap blog-post__body reveal" id="postBody">
-          {post && <ShareBar title={post.title} />}
           {post && <PostBody post={post} />}
         </div>
       </article>

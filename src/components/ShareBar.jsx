@@ -51,7 +51,7 @@ async function copyText(text) {
   }
 }
 
-export default function ShareBar({ title }) {
+export default function ShareBar({ title, variant }) {
   const [isOpen, setIsOpen] = useState(false);
   const [note, setNote] = useState('');
   const timer = useRef(0);
@@ -115,7 +115,7 @@ export default function ShareBar({ title }) {
   ];
 
   return (
-    <div className="share-bar">
+    <div className={`share-bar${variant ? ` share-bar--${variant}` : ''}`}>
       <button
         ref={triggerRef}
         type="button"
