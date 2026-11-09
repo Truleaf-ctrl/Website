@@ -265,7 +265,7 @@ export default function Careers() {
       <section className="careers-open">
         <div className="content-wrap">
           <div className="careers-open__banner reveal">
-            <img src="/webimg/careers-leaf.jpg" alt="" loading="lazy" decoding="async" />
+            <img src="/webimg/careers-leaf.webp" alt="" loading="lazy" decoding="async" />
             <div className="careers-open__card">
               <p className="careers-open__eyebrow">Don't see your role?</p>
               <h2 className="careers-open__title">We're always glad to meet people who care where food comes from.</h2>

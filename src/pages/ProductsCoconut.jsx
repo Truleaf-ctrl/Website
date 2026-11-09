@@ -16,7 +16,7 @@ const TRENDING = [
   {
     productName: 'Coconut Milk',
     productCategory: 'Coconut',
-    productImage: '/assets/images/product-card.png',
+    productImage: '/assets/images/product-card.webp',
     productBotanical: 'Cocos nucifera',
     productSourced: 'Ooty & Munnar (India)',
     productDesc:
@@ -26,7 +26,7 @@ const TRENDING = [
   {
     productName: 'Coconut Cream',
     productCategory: 'Coconut',
-    productImage: '/assets/images/trending-frame57.png',
+    productImage: '/assets/images/trending-frame57.webp',
     productBotanical: 'Cocos nucifera',
     productSourced: 'Ooty & Munnar (India)',
     productDesc:
@@ -36,7 +36,7 @@ const TRENDING = [
   {
     productName: 'Desiccated Coconut',
     productCategory: 'Coconut',
-    productImage: '/assets/images/trending-frame57.png',
+    productImage: '/assets/images/trending-frame57.webp',
     productBotanical: 'Cocos nucifera',
     productSourced: 'Ooty & Munnar (India)',
     productDesc:
@@ -46,7 +46,7 @@ const TRENDING = [
   {
     productName: 'Extra Virgin Coconut Oil',
     productCategory: 'Coconut',
-    productImage: '/assets/images/trending-frame57.png',
+    productImage: '/assets/images/trending-frame57.webp',
     productBotanical: 'Cocos nucifera',
     productSourced: 'Ooty & Munnar (India)',
     productDesc:
@@ -63,7 +63,7 @@ const stripTags = (s) =>
 const teaser = (p) => stripTags(p.description || p.shortDescription);
 
 function ProductRow({ product: p, categoryTitle, grade, slug, onOpen }) {
-  const img = urlForImageRef(p.imageRef) || '/assets/images/product-card.png';
+  const img = urlForImageRef(p.imageRef) || '/assets/images/product-card.webp';
   const open = (e) => {
     e.preventDefault();
     onOpen({
@@ -89,7 +89,7 @@ function ProductRow({ product: p, categoryTitle, grade, slug, onOpen }) {
       <h2 className="product-row__title">{p.name}</h2>
       <div className="product-row__body">
         <div className="product-row__image">
-          <img src={img} alt={p.name || ''} />
+          <img loading="lazy" decoding="async" src={img} alt={p.name || ''} />
         </div>
         <div className="product-row__info">
           <p>{teaser(p)}</p>
@@ -188,7 +188,7 @@ export default function ProductsCoconut() {
       </header>
 
       <div className="split-hero reveal">
-        <img src="/assets/images/hero-split.png" alt="" />
+        <img src="/assets/images/hero-split.webp" alt="" />
       </div>
 
       <section className="product-grid" aria-label="Products">
@@ -246,7 +246,7 @@ export default function ProductsCoconut() {
                 }}
               >
                 <div className="trend-card__image">
-                  <img src={item.productImage} alt={item.alt} />
+                  <img loading="lazy" decoding="async" src={item.productImage} alt={item.alt} />
                 </div>
                 <div className="trend-card__body">
                   <div className="trend-card__text">

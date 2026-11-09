@@ -47,9 +47,9 @@ const STRUCTURED_DATA = {
 };
 
 const SLIDES = [
-  { src: '/webimg/rice.jpg', thumb: '/webimg/rice_t.jpg', alt: 'Rice harvest close-up' },
-  { src: '/webimg/oranges.jpg', thumb: '/webimg/oranges_t.jpg', alt: 'Ripe oranges hanging on a tree in an orchard' },
-  { src: '/webimg/figma-hero.jpg', thumb: '/webimg/figma-hero_t.jpg', alt: 'Palm grove at a coconut sourcing farm' },
+  { src: '/webimg/rice.webp', thumb: '/webimg/rice_t.webp', alt: 'Rice harvest close-up' },
+  { src: '/webimg/oranges.webp', thumb: '/webimg/oranges_t.webp', alt: 'Ripe oranges hanging on a tree in an orchard' },
+  { src: '/webimg/figma-hero.webp', thumb: '/webimg/figma-hero_t.webp', alt: 'Palm grove at a coconut sourcing farm' },
 ];
 
 // The mission headline is split into words so the scroll can fill them in one by one.
@@ -171,7 +171,7 @@ export default function Home() {
         <div className="hero-thumbs" id="heroThumbs" onMouseEnter={carousel.pause} onMouseLeave={carousel.restart}>
           {SLIDES.map((s, i) => (
             <div key={s.thumb} className={carousel.thumbClass(i)} onClick={() => carousel.goTo(i)}>
-              <img src={s.thumb} alt="" />
+              <img loading="lazy" decoding="async" src={s.thumb} alt="" />
             </div>
           ))}
         </div>
@@ -248,7 +248,7 @@ export default function Home() {
               <img
                 loading="lazy"
                 decoding="async"
-                src="/webimg/coconuts.jpg"
+                src="/webimg/coconuts.webp"
                 alt="A cluster of fresh green coconuts on the tree"
               />
             </div>
@@ -300,7 +300,7 @@ export default function Home() {
             <img
               loading="lazy"
               decoding="async"
-              src="/webimg/figma-sustain.jpg"
+              src="/webimg/figma-sustain.webp"
               alt="Sunlit farmland conserved for future harvests"
             />
             <div className="mission-card-body">
@@ -374,7 +374,7 @@ export default function Home() {
               <img
                 loading="lazy"
                 decoding="async"
-                src="/webimg/harvest.jpg"
+                src="/webimg/harvest.webp"
                 alt="Hands passing a wooden crate of freshly harvested aubergines in the field"
               />
               <div className="cap-stat">
@@ -530,7 +530,7 @@ export default function Home() {
       <section className="impact">
         <div className="impact-inner">
           <div className="impact-figure" id="impactFigure">
-            <img loading="lazy" decoding="async" src="/webimg/figma-impact.jpg" alt="Rows of crops under an open sky" />
+            <img loading="lazy" decoding="async" src="/webimg/figma-impact.webp" alt="Rows of crops under an open sky" />
             <div className="impact-row">
               <div className="impact-cta">
                 <h3>Ready to source organic, with confidence?</h3>

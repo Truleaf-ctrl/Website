@@ -5,7 +5,7 @@ export default function BlogCard({ post }) {
   return (
     <Link className="blog-card" to={postHref(post)}>
       <div className="blog-card__image">
-        <img src={post.image || ''} alt="" />
+        <img loading="lazy" decoding="async" src={post.image || ''} alt="" />
       </div>
       <div className="blog-card__body">
         <h3>{post.title}</h3>

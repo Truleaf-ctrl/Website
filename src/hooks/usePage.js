@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect } from 'react';
 
 const SITE = 'https://truleaf.in';
-const DEFAULT_IMAGE = `${SITE}/webimg/figma-hero.jpg`;
+const DEFAULT_IMAGE = `${SITE}/og-image.jpg`;
 
 function setMeta(attr, key, content) {
   let el = document.head.querySelector(`meta[${attr}="${key}"]`);

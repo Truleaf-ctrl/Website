@@ -36,7 +36,7 @@ export default function About() {
       </header>
 
       <section className="about-splithero reveal">
-        <img src="/assets/images/about-hero-wheat.jpg" alt="Green wheat ears lying in the field" />
+        <img src="/assets/images/about-hero-wheat.webp" alt="Green wheat ears lying in the field" />
         <blockquote className="about-splithero__quote">
           <p>
             &ldquo;Every ingredient has a source, a story, and a standard. Our responsibility is to make sure all three
@@ -58,8 +58,8 @@ export default function About() {
 
           <div className="about-origin__story">
             <div className="about-origin__image reveal">
-              <img
-                src="/assets/images/founders-origin.jpg?v=10"
+              <img loading="lazy" decoding="async"
+                src="/assets/images/founders-origin.webp?v=10"
                 alt="Renious Charles and John Wesley, the Truleaf co-founders"
               />
             </div>
@@ -192,8 +192,8 @@ export default function About() {
 
           <div className="about-people__grid reveal-stagger">
             <article className="about-person">
-              <img
-                src="/assets/images/founder-renious.jpg"
+              <img loading="lazy" decoding="async"
+                src="/assets/images/founder-renious.webp"
                 alt="Portrait of Renious Charles, Director, Commercial & Technical"
                 className="about-person__image"
               />
@@ -210,8 +210,8 @@ export default function About() {
             </article>
 
             <article className="about-person">
-              <img
-                src="/assets/images/founder-john.jpg"
+              <img loading="lazy" decoding="async"
+                src="/assets/images/founder-john.webp"
                 alt="Portrait of John Wesley, Director, Finance"
                 className="about-person__image"
               />
@@ -285,7 +285,7 @@ export default function About() {
       </section>
 
       <section className="about-cta reveal">
-        <img src="/assets/images/about-cta-oranges.jpg" alt="" className="about-cta__bg" />
+        <img loading="lazy" decoding="async" src="/assets/images/about-cta-oranges.webp" alt="" className="about-cta__bg" />
         <div className="about-cta__content">
           <h2>If you've been looking for a sourcing partner you don't have to second-guess:</h2>
           <p>

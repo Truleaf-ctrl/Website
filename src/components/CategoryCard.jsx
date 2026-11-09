@@ -16,7 +16,7 @@ export default function CategoryCard({ name, description, imageUrl, href, terms,
 
   return (
     <Link to={href || PRODUCT_LISTING_URL} className="category-card" onClick={handleClick}>
-      <div className="category-card__image">{imageUrl ? <img src={imageUrl} alt="" /> : null}</div>
+      <div className="category-card__image">{imageUrl ? <img loading="lazy" decoding="async" src={imageUrl} alt="" /> : null}</div>
       <div className="category-card__info">
         <h3>
           <Highlight text={name} terms={terms} />

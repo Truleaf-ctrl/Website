@@ -13,7 +13,7 @@ export default function TrendCard({ name, category, imageUrl, href, onClick }) {
   return (
     <Link to={href || '/catalogue'} className="trend-card" onClick={handleClick}>
       <div className="trend-card__image">
-        <img src={imageUrl || ''} alt={name || ''} />
+        <img loading="lazy" decoding="async" src={imageUrl || ''} alt={name || ''} />
       </div>
       <div className="trend-card__body">
         <div className="trend-card__text">

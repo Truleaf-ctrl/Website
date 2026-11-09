@@ -13,7 +13,7 @@
   --color-neutral-4: #a1a1ad;
   --font-body: 'Instrument Sans', sans-serif;
   --font-display: 'Lora', serif;
-  --font-light: 'Sora', sans-serif;
+  --font-light: 'Instrument Sans', sans-serif;
   --font-ui: 'Instrument Sans', sans-serif;
   --max-width: 1440px;
   --content-width: 1200px;
@@ -497,7 +497,7 @@ h1, h2, h3, p { margin: 0; }
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('/assets/images/contact-hero-bg.jpg');
+  background-image: url('/assets/images/contact-hero-bg.webp');
   background-size: cover;
   background-position: center;
 }
@@ -2001,7 +2001,7 @@ h1, h2, h3, p { margin: 0; }
   position: relative;
   padding: 44px clamp(16px, 4vw, 44px) 90px;
   overflow: hidden;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/webimg/banana-leaf.jpg') center / cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/webimg/banana-leaf.webp') center / cover no-repeat;
 }
 
 .supply-hero__content {
@@ -2433,7 +2433,7 @@ h1, h2, h3, p { margin: 0; }
   padding-left: clamp(28px, 6vw, 96px);
   border-radius: 28px;
   overflow: hidden;
-  background: #1f2a1c url('/webimg/banana-leaf.jpg') center / cover no-repeat;
+  background: #1f2a1c url('/webimg/banana-leaf.webp') center / cover no-repeat;
 }
 
 .supply-brief__stage::before {
@@ -2595,7 +2595,7 @@ h1, h2, h3, p { margin: 0; }
   display: flex;
   border-radius: 28px;
   overflow: hidden;
-  background: #1f2a1c url('/webimg/fields.jpg') center / cover no-repeat;
+  background: #1f2a1c url('/webimg/fields.webp') center / cover no-repeat;
 }
 
 .cta-photo__frame::before {
@@ -3277,7 +3277,7 @@ h1, h2, h3, p { margin: 0; }
    ========================================================= */
 
 .careers-hero {
-  background: linear-gradient(90deg, rgba(8, 14, 10, 0.55), rgba(8, 14, 10, 0.15)), url('/webimg/careers-seedling.jpg') 75% center / cover no-repeat;
+  background: linear-gradient(90deg, rgba(8, 14, 10, 0.55), rgba(8, 14, 10, 0.15)), url('/webimg/careers-seedling.webp') 75% center / cover no-repeat;
 }
 
 .careers-hero .supply-hero__content { margin-block: 96px 40px; }

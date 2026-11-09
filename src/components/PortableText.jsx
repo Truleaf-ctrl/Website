@@ -30,7 +30,7 @@ function Spans({ children, markDefs }) {
 export function InlineImage({ src, alt = '' }) {
   return (
     <div className="blog-post__image">
-      <img src={src} alt={alt} />
+      <img loading="lazy" decoding="async" src={src} alt={alt} />
     </div>
   );
 }

@@ -22,13 +22,13 @@ export async function sanityFetch(query, params) {
 
 // Resolve a Sanity image asset reference (e.g. "image-abc123-2000x1500-png")
 // into a CDN URL, without an extra network round trip.
-export function urlForImageRef(ref) {
+export function urlForImageRef(ref, width = 900) {
   if (!ref) return '';
   const parts = ref.replace('image-', '').split('-');
   const format = parts.pop();
   const dimensions = parts.pop();
   const id = parts.join('-');
-  return `https://cdn.sanity.io/images/${SANITY_PROJECT_ID}/${SANITY_DATASET}/${id}-${dimensions}.${format}`;
+  return `https://cdn.sanity.io/images/${SANITY_PROJECT_ID}/${SANITY_DATASET}/${id}-${dimensions}.${format}?w=${width}&auto=format&q=75`;
 }
 
 export function formatDate(isoDate) {

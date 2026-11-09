@@ -22,37 +22,37 @@ const FALLBACK = {
     name: 'Coconut Products',
     slug: 'coconut-products',
     shortDescription: 'Milk, cream, oils, desiccated and more, sourced from trusted processors.',
-    image: IMG + 'category-coconut-products.png',
+    image: IMG + 'category-coconut-products.webp',
   },
   fruitsVeg: {
     name: 'Fruits & Vegetables',
     slug: 'fruits-vegetables',
     shortDescription: 'Fresh produce graded and packed for export.',
-    image: IMG + 'category-fruits-vegetables.png',
+    image: IMG + 'category-fruits-vegetables.webp',
   },
   oils: {
     name: 'Edible Oils',
     slug: 'edible-oils',
     shortDescription: 'Cold-pressed and refined oils in bulk and retail packs.',
-    image: IMG + 'category-edible-oils.png',
+    image: IMG + 'category-edible-oils.webp',
   },
   juices: {
     name: 'Juices & Purees',
     slug: 'juices-purees',
     shortDescription: 'Fruit juices and purees for beverage and food makers.',
-    image: IMG + 'category-juices-purees.png',
+    image: IMG + 'category-juices-purees.webp',
   },
   pickled: {
     name: 'Pickled & Preserved Vegetables',
     slug: 'pickled-preserved-vegetables',
     shortDescription: 'Pickled and preserved vegetables, ready for retail and food service.',
-    image: IMG + 'category-pickled-vegetables.png',
+    image: IMG + 'category-pickled-vegetables.webp',
   },
   frozen: {
     name: 'Frozen Fruits & Vegetables',
     slug: 'frozen-fruits-vegetables',
     shortDescription: 'Frozen fruits and vegetables with the cold chain intact.',
-    image: IMG + 'category-frozen-produce.png',
+    image: IMG + 'category-frozen-produce.webp',
   },
 };
 const FALLBACK_ORGANIC = ['coconut', 'fruitsVeg', 'oils', 'juices'].map((k) => FALLBACK[k]);

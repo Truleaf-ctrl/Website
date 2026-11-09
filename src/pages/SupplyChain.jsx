@@ -14,11 +14,11 @@ const BRIEF_LABEL = 'Request a Callback';
 
 const CAT = '/assets/images/category-normalized/category-';
 const BANNER_CARDS = [
-  { src: `${CAT}pickles-cornichons.png`, tone: 'green', label: 'Pickles & preserves' },
-  { src: `${CAT}juices-purees.png`, tone: 'peach', label: 'Juices & purees' },
-  { src: `${CAT}edible-oils.png`, tone: 'blue', label: 'Edible oils' },
-  { src: `${CAT}healthy-snacks.png`, tone: 'cream', label: 'Healthy snacks' },
-  { src: `${CAT}ready-to-eat-products.png`, tone: 'lav', label: 'Ready to eat' },
+  { src: `${CAT}pickles-cornichons.webp`, tone: 'green', label: 'Pickles & preserves' },
+  { src: `${CAT}juices-purees.webp`, tone: 'peach', label: 'Juices & purees' },
+  { src: `${CAT}edible-oils.webp`, tone: 'blue', label: 'Edible oils' },
+  { src: `${CAT}healthy-snacks.webp`, tone: 'cream', label: 'Healthy snacks' },
+  { src: `${CAT}ready-to-eat-products.webp`, tone: 'lav', label: 'Ready to eat' },
 ];
 
 export default function SupplyChain() {
@@ -106,7 +106,7 @@ export default function SupplyChain() {
         </div>
 
           <div className="supply-banner__visual">
-            <img src="/assets/images/retail-hero-packed.jpg" alt="Packed food ready for retail: bottled water, bagged pasta and canned goods" />
+            <img src="/assets/images/retail-hero-packed.webp" alt="Packed food ready for retail: bottled water, bagged pasta and canned goods" />
           </div>
         </div>
       </header>
@@ -166,7 +166,7 @@ export default function SupplyChain() {
               <ul className="supply-cells">
                 {categories.map((c) => (
                   <li className="supply-cell" key={c.name}>
-                    {c.imageRef ? <img className="supply-cell__image" src={urlForImageRef(c.imageRef)} alt="" /> : null}
+                    {c.imageRef ? <img loading="lazy" decoding="async" className="supply-cell__image" src={urlForImageRef(c.imageRef)} alt="" /> : null}
                     <h3 className="supply-cell__name">{c.name}</h3>
                     <p className="supply-cell__desc">{c.shortDescription || ''}</p>
                   </li>
