@@ -527,6 +527,33 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="impact">
+        <div className="impact-inner">
+          <div className="impact-figure" id="impactFigure">
+            <img loading="lazy" decoding="async" src="/webimg/figma-impact.jpg" alt="Rows of crops under an open sky" />
+            <div className="impact-row">
+              <div className="impact-cta">
+                <h3>Ready to source organic, with confidence?</h3>
+                <p className="impact-cta-sub">
+                  Tell us what you need. Our team will come back with availability, specs and a quote.
+                </p>
+                <div className="impact-cta-actions">
+                  <Link to="/contact?enquiry=quote" className="btn btn-primary-img">
+                    Request a quote{' '}
+                    <svg viewBox="0 0 16 16" fill="none">
+                      <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+                    </svg>
+                  </Link>
+                  <Link to="/catalogue" className="btn btn-glass">
+                    Download catalogue
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="retail" id="retail">
         <div className="retail-inner">
           <div className="retail-copy">
@@ -561,33 +588,6 @@ export default function Home() {
               <p>Traceable supply from origin to delivery, with account support after launch.</p>
             </li>
           </ul>
-        </div>
-      </section>
-
-      <section className="impact">
-        <div className="impact-inner">
-          <div className="impact-figure" id="impactFigure">
-            <img loading="lazy" decoding="async" src="/webimg/figma-impact.jpg" alt="Rows of crops under an open sky" />
-            <div className="impact-row">
-              <div className="impact-cta">
-                <h3>Ready to source organic, with confidence?</h3>
-                <p className="impact-cta-sub">
-                  Tell us what you need. Our team will come back with availability, specs and a quote.
-                </p>
-                <div className="impact-cta-actions">
-                  <Link to="/contact?enquiry=quote" className="btn btn-primary-img">
-                    Request a quote{' '}
-                    <svg viewBox="0 0 16 16" fill="none">
-                      <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-                    </svg>
-                  </Link>
-                  <Link to="/catalogue" className="btn btn-glass">
-                    Download catalogue
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
