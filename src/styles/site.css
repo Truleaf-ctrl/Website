@@ -3763,3 +3763,7 @@ h1, h2, h3, p { margin: 0; }
 .blog-post__body .blog-post__cta p:first-child{ font-family:var(--font-body); font-size:18px; line-height:1.35; margin-bottom:4px; color:var(--color-text-primary); }
 .blog-post__body .blog-post__cta a{ color:var(--color-action-primary); text-decoration:underline; text-underline-offset:3px; font-weight:600; }
 .blog-post__body .blog-post__cta a:hover{ color:var(--color-brand-accent); }
+
+/* Article title: smaller than the other page heroes so long titles stay calm */
+#postTitle{ font-size:clamp(26px, 3.2vw, 40px); line-height:1.2; letter-spacing:-1px; max-width:900px; margin-left:auto; margin-right:auto; }
+@media (max-width:560px){ #postTitle{ font-size:24px; letter-spacing:-.5px; line-height:1.25; } }
