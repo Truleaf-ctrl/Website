@@ -126,8 +126,8 @@ export default function BlogPost() {
 
       <article className="blog-post">
         <div className="content-wrap blog-post__body reveal" id="postBody">
-          {post && <PostBody post={post} />}
           {post && <ShareBar title={post.title} />}
+          {post && <PostBody post={post} />}
         </div>
       </article>
 
