@@ -47,7 +47,7 @@ export default function Blog() {
       </header>
 
       <div className="blog-banner reveal">
-        <img src="/assets/images/blog-banner.webp" alt="Aerial view of a green crop field" />
+        <img src="/assets/images/blog-banner.webp" alt="Green barley field at dusk" />
       </div>
 
       <section className="blog-grid">
