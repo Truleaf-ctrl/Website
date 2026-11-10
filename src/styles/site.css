@@ -43,7 +43,7 @@ h1, h2, h3, p { margin: 0; }
   gap: 10px;
   border-radius: 999px;
   font-family: var(--font-light);
-  font-weight: 300;
+  font-weight: 400;
   font-size: 16px;
   white-space: nowrap;
   cursor: pointer;
@@ -1807,7 +1807,7 @@ h1, h2, h3, p { margin: 0; }
 
 .blog-post__body p {
   font-family: var(--font-light);
-  font-weight: 300;
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.4;
   color: var(--color-text-primary);
@@ -1848,7 +1848,7 @@ h1, h2, h3, p { margin: 0; }
 
 .blog-post__body li {
   font-family: var(--font-light);
-  font-weight: 300;
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.4;
   color: var(--color-text-primary);
@@ -3697,7 +3697,7 @@ h1, h2, h3, p { margin: 0; }
   body .supply-hero__title,
   body .contact-copy__title,
   body .catalogue-hero__title,
-  body .hero h1 { font-size: 28px; font-weight: 400; line-height: 1.25; }
+  body .hero h1 { font-size: 28px; line-height: 1.25; }
 
   body .sourcing-title,
   body .section-head-title,
@@ -3714,7 +3714,7 @@ h1, h2, h3, p { margin: 0; }
   body .certs-statement,
   body .about-main h2,
   body .blog-post h2 {
-    font-size: 24px; font-weight: 400; line-height: 1.3; letter-spacing: -0.4px;
+    font-size: 24px; line-height: 1.3; letter-spacing: -0.4px;
   }
 
   body .mission-card-title,
@@ -3723,7 +3723,7 @@ h1, h2, h3, p { margin: 0; }
   body .about-origin__pull,
   body .category-card__info h3,
   body .trend-card h3,
-  body .supply-cell h3 { font-size: 20px; font-weight: 400; line-height: 1.3; }
+  body .supply-cell h3 { font-size: 20px; line-height: 1.3; }
 
   body .supply-hero__body,
   body .about-hero__body,
@@ -3737,12 +3737,12 @@ h1, h2, h3, p { margin: 0; }
   body .contact-copy__value { font-size: 16px; line-height: 1.5; }
 
   body .contact-card__title,
-  body .about-person__name { font-size: 18px; font-weight: 500; }
+  body .about-person__name { font-size: 18px; }
   body .cta-photo__fact-value { font-size: 20px; }
   body .cap-stat-num { font-size: 32px; }
   body .careers-why .supply-heading { font-size: 24px; line-height: 1.3; }
-  body section h3:not([class]) { font-size: 20px; font-weight: 400; line-height: 1.3; }
-  body .mission-card--photo .mission-card-title { font-weight: 400; line-height: 1.3; }
+  body section h3:not([class]) { font-size: 20px; line-height: 1.3; }
+  body .mission-card--photo .mission-card-title { line-height: 1.3; }
 }
 
 /* Article share bar */

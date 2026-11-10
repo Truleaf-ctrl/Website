@@ -426,11 +426,11 @@
 
   /* Mobile type scale — same sizes/weights as every other page (see styles.css) */
   @media(max-width:720px){
-    body h1, body .hero-title, body .hero__title { font-size:28px; font-weight:400; line-height:1.25; }
+    body h1, body .hero-title, body .hero__title { font-size:28px; line-height:1.25; }
     body .sourcing-title, body .section-head-title, body .buying .section-head-title,
     body .products-titles .section-head-title, body .cat-list-titles .section-head-title,
-    body .mission-title, body .certs-statement { font-size:24px; font-weight:400; line-height:1.3; letter-spacing:-.4px; }
-    body .mission-card-title, body .mission-card--photo .mission-card-title, body .buying-steps h3 { font-size:20px; font-weight:400; line-height:1.3; }
+    body .mission-title, body .certs-statement { font-size:24px; line-height:1.3; letter-spacing:-.4px; }
+    body .mission-card-title, body .mission-card--photo .mission-card-title, body .buying-steps h3 { font-size:20px; line-height:1.3; }
     body .cap-stat-num { font-size:32px; }
-    body section h3:not([class]), body .cap-list h3, body .buying-steps h3 { font-size:20px; font-weight:400; line-height:1.3; }
+    body section h3:not([class]), body .cap-list h3, body .buying-steps h3 { font-size:20px; line-height:1.3; }
   }
