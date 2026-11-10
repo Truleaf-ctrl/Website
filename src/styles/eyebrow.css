@@ -33,3 +33,75 @@ body .company-speakup .company-eyebrow { color: rgba(255, 255, 255, 0.72); }
 body .products-titles > .section-eyebrow { margin-bottom: 0; }
 body .cat-list-eyebrow { display: block; margin-bottom: 14px; }
 body .section-eyebrow { display: block; }
+
+/* ---------------------------------------------------------------
+   Type hierarchy for cards / steps / list items on LIGHT backgrounds:
+   dark serif title  →  lighter, calmer description. One tone site-wide.
+   --------------------------------------------------------------- */
+:root { --ink-title: #1e1e1e; --ink-body: #62626f; }
+
+body .buying-steps h3,
+body .cap-card h3,
+body .retail-points h3,
+body .supply-process__step h3,
+body .supply-handle-card h3,
+body .careers-why__item h3,
+body .company-doc__text h4,
+body .company-step h3,
+body .category-card__info h3,
+body .trend-card h3 { color: var(--ink-title); }
+
+body .buying-steps p,
+body .cap-card p,
+body .cat-list-head p,
+body .sourcing-aside p,
+body .mission-card--stat p,
+body .retail-copy p,
+body .retail-points p,
+body .supply-process__step p,
+body .supply-handle-card__text p,
+body .supply-categories__copy p,
+body .careers-why__item p,
+body .careers-role__main p,
+body .catalogue-section__body,
+body .company-doc__text p,
+body .company-panel p,
+body .about-work__intro p,
+body .about-feature-row p,
+body .about-feature-cell p,
+body .about-integrity__body,
+body .about-hero__body,
+body .about-origin__text > p:not([class]),
+body .about-origin__row-body > p:not([class]),
+body .careers-why__lede,
+body .careers-apply__body,
+body .company-hero__body,
+body .legal__intro,
+body .legal__section p,
+body .category-card__info p {
+  color: var(--ink-body);
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+body .buying-steps h3 + p { margin-top: 0; }
+body .buying-steps__noop,
+body .cap-card h3 + p,
+body .retail-points h3 + p,
+body .supply-process__step h3 + p,
+body .supply-handle-card h3 + p,
+body .careers-why__item h3 + p { margin-top: 8px; }
+
+/* one card/step title style: Lora, medium, 22px */
+body section .buying-steps h3,
+body section .cap-card h3,
+body section .retail-points h3,
+body section .supply-process__step h3,
+body section .supply-handle-card h3,
+body section .careers-why__item h3 {
+  font-family: 'Lora', serif;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.25;
+  letter-spacing: -0.2px;
+}
