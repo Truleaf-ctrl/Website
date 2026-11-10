@@ -136,9 +136,6 @@ function ProductOverlay({ data, isOpen, onClose }) {
               <h2 className="overlay__title" id="overlayTitle">
                 {d.productName || ''}
               </h2>
-              <Link to="/contact" className="btn btn--primary overlay__cta overlay__cta--top" onClick={onClose}>
-                Enquire
-              </Link>
             </div>
             <ul className="overlay__chips" hidden={!certs.length} aria-label="Certifications">
               {certs.map((c) => (
