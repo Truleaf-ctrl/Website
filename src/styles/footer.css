@@ -24,7 +24,7 @@
 .footer-col--offices{ gap:28px; max-width:300px; }
 .footer-office{ display:flex; flex-direction:column; gap:12px; }
 .footer-col address{ font-style:normal; font-family:'Instrument Sans', sans-serif; font-size:14px; line-height:24px; letter-spacing:-.15px; color:rgba(255,255,255,.5); }
-.footer-bottom{ display:flex; justify-content:space-between; align-items:center; gap:16px; min-height:64px; border-top:1px solid rgba(255,255,255,.1); font-family:'Instrument Sans', sans-serif; font-size:10px; line-height:15px; letter-spacing:4.1px; text-transform:uppercase; color:rgba(255,255,255,.45); }
+.footer-bottom{ display:flex; justify-content:space-between; align-items:center; gap:16px; min-height:64px; border-top:1px solid rgba(255,255,255,.1); font-family:'Instrument Sans', sans-serif; font-size:11px; line-height:16px; letter-spacing:4.1px; text-transform:uppercase; color:rgba(255,255,255,.72); }
 @media(max-width:920px){
   .site-footer{ padding:64px 24px 0; }
   .footer-inner{ gap:56px; }

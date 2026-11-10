@@ -28,7 +28,7 @@ body .supply-banner__eyebrow,
 body .cta-photo__eyebrow,
 body .careers-open__eyebrow,
 body .supply-brief__copy .supply-eyebrow,
-body .company-speakup .company-eyebrow { color: rgba(255, 255, 255, 0.72); }
+body .company-speakup .company-eyebrow { color: rgba(255, 255, 255, 0.9); }
 /* flex heading groups already space their children */
 body .products-titles > .section-eyebrow { margin-bottom: 0; }
 body .cat-list-eyebrow { display: block; margin-bottom: 14px; }
@@ -65,7 +65,6 @@ body .careers-why__item p,
 body .careers-role__main p,
 body .catalogue-section__body,
 body .company-doc__text p,
-body .company-panel p,
 body .about-work__intro p,
 body .about-feature-row p,
 body .about-feature-cell p,
@@ -105,3 +104,23 @@ body section .careers-why__item h3 {
   line-height: 1.25;
   letter-spacing: -0.2px;
 }
+
+/* titles that sit on dark sections stay light */
+body .company-speakup .company-step h3,
+body .company-speakup .company-panel h3 { color: #fff; }
+
+/* ---------------------------------------------------------------
+   Accessibility: text over photos needs a darker scrim (WCAG AA 4.5:1)
+   --------------------------------------------------------------- */
+body .about-person__card { background: rgba(10, 11, 16, 0.74); }
+body .cap-stat { background: rgba(10, 11, 23, 0.66); border-color: rgba(255, 255, 255, 0.22); }
+body .cta-photo__frame::before {
+  background:
+    linear-gradient(rgba(8, 14, 10, 0.4), rgba(8, 14, 10, 0.4)),
+    linear-gradient(180deg, rgba(8, 14, 10, 0.45) 0%, rgba(8, 14, 10, 0) 40%),
+    linear-gradient(0deg, rgba(8, 14, 10, 0.72) 0%, rgba(8, 14, 10, 0) 55%),
+    linear-gradient(90deg, rgba(8, 14, 10, 0.62) 0%, rgba(8, 14, 10, 0.12) 65%);
+}
+body .supply-hero { background: linear-gradient(rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.58)), url('/webimg/banana-leaf.webp') center / cover no-repeat; }
+body .cta-photo__fact-label,
+body .cta-photo__fact-note { color: #fff; }
