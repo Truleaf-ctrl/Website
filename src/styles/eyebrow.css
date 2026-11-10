@@ -121,7 +121,7 @@ body .cta-photo__frame::before {
     linear-gradient(0deg, rgba(8, 14, 10, 0.72) 0%, rgba(8, 14, 10, 0) 55%),
     linear-gradient(90deg, rgba(8, 14, 10, 0.62) 0%, rgba(8, 14, 10, 0.12) 65%);
 }
-body .supply-hero { background: linear-gradient(rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.58)), url('/webimg/banana-leaf.webp') center / cover no-repeat; }
+body .supply-hero:not(.supply-hero--split) { background: linear-gradient(rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.58)), url('/webimg/banana-leaf.webp') center / cover no-repeat; }
 body .cta-photo__fact-label,
 body .cta-photo__fact-note { color: #fff; }
 
