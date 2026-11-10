@@ -8,5 +8,6 @@ import footer from './footer.css?inline';
 import motion from './motion.css?inline';
 import site from './site.css?inline';
 import overlay from './overlay.css?inline';
+import eyebrow from './eyebrow.css?inline';
 
-export const SITE_CSS = [categoryCard, trendCard, site, overlay, footer, motion].join('\n');
+export const SITE_CSS = [categoryCard, trendCard, site, overlay, footer, motion, eyebrow].join('\n');

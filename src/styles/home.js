@@ -6,5 +6,6 @@ import motion from './motion.css?inline';
 import homeTokens from './home-tokens.css?inline';
 import home from './home.css?inline';
 import overlay from './overlay.css?inline';
+import eyebrow from './eyebrow.css?inline';
 
-export const HOME_CSS = [categoryCard, trendCard, footer, homeTokens, home, overlay, motion].join('\n');
+export const HOME_CSS = [categoryCard, trendCard, footer, homeTokens, home, overlay, motion, eyebrow].join('\n');
