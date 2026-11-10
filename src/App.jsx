@@ -11,6 +11,7 @@ const Careers = lazy(() => import('./pages/Careers'));
 const Catalogue = lazy(() => import('./pages/Catalogue'));
 const Company = lazy(() => import('./pages/Company'));
 const Contact = lazy(() => import('./pages/Contact'));
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const ProductsCoconut = lazy(() => import('./pages/ProductsCoconut'));
 const Search = lazy(() => import('./pages/Search'));
 const SupplyChain = lazy(() => import('./pages/SupplyChain'));
@@ -39,6 +40,7 @@ export default function App() {
           <Route path="/catalogue" element={<Catalogue />} />
           <Route path="/company" element={<Company />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/products-coconut" element={<ProductsCoconut />} />
           <Route path="/search" element={<Search />} />
           <Route path="/supply-chain" element={<SupplyChain />} />

@@ -126,8 +126,17 @@ export default function Company() {
             <ul className="company-docs">
               <li className="company-doc">
                 <div className="company-doc__text">
-                  <h4>Privacy Policy &amp; Terms of Use</h4>
-                  <p>How we collect, use and protect personal information, and the terms for using this website.</p>
+                  <h4>Privacy &amp; Cookie Policy</h4>
+                  <p>How we collect, use, share and protect personal data, and how we use cookies on this website.</p>
+                </div>
+                <Link className="company-doc__btn" to="/privacy-policy">
+                  Read policy
+                </Link>
+              </li>
+              <li className="company-doc">
+                <div className="company-doc__text">
+                  <h4>Terms of Use</h4>
+                  <p>The terms for using this website.</p>
                 </div>
                 <span className="company-doc__soon">Coming soon</span>
               </li>

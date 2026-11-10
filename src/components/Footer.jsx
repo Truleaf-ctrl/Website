@@ -73,7 +73,10 @@ export default function Footer() {
         </div>
         <div className="footer-bottom">
           <span>© 2026 Truleaf Foods Private Limited</span>
-          <span>All Rights Reserved</span>
+          <span>
+            <Link to="/privacy-policy">Privacy &amp; Cookie Policy</Link>
+            {' · '}All Rights Reserved
+          </span>
         </div>
       </div>
     </footer>
