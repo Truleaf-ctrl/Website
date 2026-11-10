@@ -49,7 +49,7 @@ const STRUCTURED_DATA = {
 const SLIDES = [
   { src: '/webimg/rice.webp', thumb: '/webimg/rice_t.webp', alt: 'Rice harvest close-up' },
   { src: '/webimg/oranges.webp', thumb: '/webimg/oranges_t.webp', alt: 'Ripe oranges hanging on a tree in an orchard' },
-  { src: '/webimg/figma-hero.webp', thumb: '/webimg/figma-hero_t.webp', alt: 'Palm grove at a coconut sourcing farm' },
+  { src: '/webimg/coconuts.webp', thumb: '/webimg/coconuts_t.webp', alt: 'A cluster of fresh green coconuts on the tree' },
 ];
 
 // The mission headline is split into words so the scroll can fill them in one by one.
