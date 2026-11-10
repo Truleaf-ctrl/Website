@@ -8,23 +8,22 @@ import { SITE_CSS } from '../styles/site';
 
 const SPEAK_UP_MAIL = 'mailto:info@truleaf.in?subject=Speak%20Up';
 
-// Set `file` to a path under /public (e.g. '/documents/terms-of-purchase.pdf') once the PDF is uploaded.
-// Until then the row offers a "Request a copy" email instead of a broken download link.
+// PDFs live in /public/documents. A row with no `file` shows a "Request a copy" email instead.
 const TRADE_TERMS = [
   {
     title: 'Terms & Conditions of Purchase',
-    body: 'The terms that apply when Truleaf purchases goods and services from suppliers.',
-    file: null,
+    body: 'The standard terms for purchase orders Truleaf issues for food ingredients, processed foods, packaging and services.',
+    file: '/documents/Truleaf-Standard-Terms-and-Conditions-of-Purchase.pdf',
   },
   {
     title: 'Terms & Conditions of Supply',
     body: 'The terms that apply when Truleaf supplies products to buyers and partners.',
-    file: null,
+    file: '/documents/Truleaf-General-Terms-and-Conditions-of-Supply.pdf',
   },
   {
     title: 'Supplier Code of Conduct',
     body: 'The ethical, labour, quality and environmental standards we expect from every supplier.',
-    file: null,
+    file: '/documents/Truleaf-Supplier-Code-of-Conduct.pdf',
   },
 ];
 
