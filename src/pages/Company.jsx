@@ -102,21 +102,6 @@ export default function Company() {
           </div>
 
           <div className="company-group reveal">
-            <h3 className="company-group__title">Code of Conduct</h3>
-            <ul className="company-docs">
-              <li className="company-doc">
-                <div className="company-doc__text">
-                  <h4>{CODE_OF_CONDUCT.title}</h4>
-                  <p>{CODE_OF_CONDUCT.body}</p>
-                </div>
-                <a className="company-doc__btn" href={CODE_OF_CONDUCT.file} download>
-                  Download PDF
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div className="company-group reveal">
             <h3 className="company-group__title">Trade Terms and Conditions</h3>
             <ul className="company-docs">
               {TRADE_TERMS.map((d) => (
@@ -162,6 +147,21 @@ export default function Company() {
                 <span className="company-doc__soon">Coming soon</span>
               </li>
             </ul>
+
+          <div className="company-group reveal">
+            <h3 className="company-group__title">Code of Conduct</h3>
+            <ul className="company-docs">
+              <li className="company-doc">
+                <div className="company-doc__text">
+                  <h4>{CODE_OF_CONDUCT.title}</h4>
+                  <p>{CODE_OF_CONDUCT.body}</p>
+                </div>
+                <a className="company-doc__btn" href={CODE_OF_CONDUCT.file} download>
+                  Download PDF
+                </a>
+              </li>
+            </ul>
+          </div>
           </div>
         </div>
       </section>
