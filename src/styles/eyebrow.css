@@ -19,7 +19,7 @@ body .careers-open__eyebrow {
   line-height: 1.3;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #272c7d;
+  color: #6b6b78;
   margin-bottom: 12px;
 }
 body .contact-copy__eyebrow,
@@ -28,7 +28,7 @@ body .supply-banner__eyebrow,
 body .cta-photo__eyebrow,
 body .careers-open__eyebrow,
 body .supply-brief__copy .supply-eyebrow,
-body .company-speakup .company-eyebrow { color: #7fd6ec; }
+body .company-speakup .company-eyebrow { color: rgba(255, 255, 255, 0.72); }
 /* flex heading groups already space their children */
 body .products-titles > .section-eyebrow { margin-bottom: 0; }
 body .cat-list-eyebrow { display: block; margin-bottom: 14px; }
