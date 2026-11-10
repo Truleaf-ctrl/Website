@@ -110,6 +110,7 @@
   transition: background-color 0.25s ease, border-color 0.25s ease;
 }
 
+.overlay__close:focus:not(:focus-visible) { outline: none; }
 .overlay__close:hover {
   background: var(--color-neutral-1, #f3f3f7);
   border-color: #272c7d;
@@ -401,9 +402,10 @@
   display: flex;
   align-items: center;
   gap: 20px;
-  padding: 20px 0 4px;
-  margin-top: -4px;
-  background: linear-gradient(to top, #f3f3f7 72%, rgba(243, 243, 247, 0));
+  padding: 16px 0;
+  margin-top: 4px;
+  background: #f3f3f7;
+  border-top: 1px solid #e2e2ea;
 }
 
 @media (max-width: 900px) {
