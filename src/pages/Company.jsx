@@ -8,38 +8,23 @@ import { SITE_CSS } from '../styles/site';
 
 const SPEAK_UP_MAIL = 'mailto:info@truleaf.in?subject=Speak%20Up';
 
-const POLICIES = [
+// Set `file` to a path under /public (e.g. '/documents/terms-of-purchase.pdf') once the PDF is uploaded.
+// Until then the row offers a "Request a copy" email instead of a broken download link.
+const TRADE_TERMS = [
   {
-    title: 'Code of Conduct',
-    body: 'The standards of honesty, respect and accountability we expect from everyone who works with or for Truleaf.',
+    title: 'Terms & Conditions of Purchase',
+    body: 'The terms that apply when Truleaf purchases goods and services from suppliers.',
+    file: null,
   },
   {
-    title: 'Anti-Bribery & Corruption',
-    body: 'We do not offer, pay or accept bribes. Gifts, hospitality and facilitation payments are tightly controlled.',
+    title: 'Terms & Conditions of Supply',
+    body: 'The terms that apply when Truleaf supplies products to buyers and partners.',
+    file: null,
   },
   {
-    title: 'Quality & Food Safety',
-    body: 'Traceable, certified, compliant. Every lot is documented from origin to shipment against export standards.',
-  },
-  {
-    title: 'Human Rights & Fair Labour',
-    body: 'No child or forced labour, fair pay and safe working conditions across our farms, processors and offices.',
-  },
-  {
-    title: 'Environment & Sustainability',
-    body: 'Organic, responsible practices that protect soil, water and the farming communities we source from.',
-  },
-  {
-    title: 'Supplier Code',
-    body: 'What we ask of every farmer group, processor and partner: transparency, traceability and ethical conduct.',
-  },
-  {
-    title: 'Data Privacy',
-    body: 'How we collect, use and protect personal information from customers, partners and job applicants.',
-  },
-  {
-    title: 'Conflicts of Interest',
-    body: 'We disclose and manage any personal interest that could influence a business decision.',
+    title: 'Supplier Code of Conduct',
+    body: 'The ethical, labour, quality and environmental standards we expect from every supplier.',
+    file: null,
   },
 ];
 
@@ -105,23 +90,50 @@ export default function Company() {
         <div className="content-wrap">
           <div className="company-head reveal">
             <p className="company-eyebrow">01 · Our Code &amp; Policies</p>
-            <h2 className="company-h2">The standards we hold ourselves to.</h2>
+            <h2 className="company-h2">The terms and policies we stand by.</h2>
             <p className="company-lede">
-              Our Code of Conduct and supporting policies apply to our people, our suppliers and everyone who acts on
-              Truleaf's behalf.
+              How we trade, what we expect of our partners, and how we protect your information.
             </p>
           </div>
-          <ul className="company-policy-grid">
-            {POLICIES.map((p) => (
-              <li key={p.title} className="company-policy reveal">
-                <h3>{p.title}</h3>
-                <p>{p.body}</p>
+
+          <div className="company-group reveal">
+            <h3 className="company-group__title">Trade Terms and Conditions</h3>
+            <ul className="company-docs">
+              {TRADE_TERMS.map((d) => (
+                <li key={d.title} className="company-doc">
+                  <div className="company-doc__text">
+                    <h4>{d.title}</h4>
+                    <p>{d.body}</p>
+                  </div>
+                  {d.file ? (
+                    <a className="company-doc__btn" href={d.file} download>
+                      Download PDF
+                    </a>
+                  ) : (
+                    <a
+                      className="company-doc__btn company-doc__btn--ghost"
+                      href={`mailto:info@truleaf.in?subject=${encodeURIComponent(`Request: ${d.title}`)}`}
+                    >
+                      Request a copy
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="company-group reveal">
+            <h3 className="company-group__title">Privacy Policy &amp; Terms of Use</h3>
+            <ul className="company-docs">
+              <li className="company-doc">
+                <div className="company-doc__text">
+                  <h4>Privacy Policy &amp; Terms of Use</h4>
+                  <p>How we collect, use and protect personal information, and the terms for using this website.</p>
+                </div>
+                <span className="company-doc__soon">Coming soon</span>
               </li>
-            ))}
-          </ul>
-          <p className="company-note reveal">
-            Need a full copy of a policy for an audit or due diligence? <a href="mailto:info@truleaf.in?subject=Policy%20request">Request it from our team</a>.
-          </p>
+            </ul>
+          </div>
         </div>
       </section>
 
