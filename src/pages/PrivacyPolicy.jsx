@@ -256,6 +256,8 @@ export default function PrivacyPolicy() {
         </div>
       </header>
 
+      <main id="main">
+
       <section className="legal">
         <div className="content-wrap legal__layout">
           <nav className="legal__toc" aria-label="Contents">
@@ -333,6 +335,9 @@ export default function PrivacyPolicy() {
           </article>
         </div>
       </section>
+
+      </main>
+
 
       <Footer />
     </>

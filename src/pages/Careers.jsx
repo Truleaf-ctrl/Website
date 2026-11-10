@@ -147,6 +147,8 @@ export default function Careers() {
         </div>
       </header>
 
+      <main id="main">
+
       <section className="careers-why">
         <div className="content-wrap careers-why__inner">
           <div className="careers-why__head reveal">
@@ -437,6 +439,9 @@ export default function Careers() {
           </div>
         </div>
       </section>
+
+      </main>
+
 
       <Footer />
     </>

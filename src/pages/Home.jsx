@@ -120,6 +120,7 @@ export default function Home() {
 
   return (
     <>
+      <main id="main">
       <section className="hero" id="hero">
         {SLIDES.slice(0, 2).map((s, i) => (
           <div key={s.src} className={carousel.slideClass(i)} ref={carousel.slideRef(i)}>
@@ -176,6 +177,7 @@ export default function Home() {
           ))}
         </div>
       </section>
+
 
       <section className="certs">
         <div className="certs-inner">
@@ -593,6 +595,12 @@ export default function Home() {
         </div>
       </section>
 
+      <Link to="/contact?enquiry=quote" className={`sticky-cta${stickyOn ? ' is-on' : ''}`} id="stickyCta">
+              Request a quote
+            </Link>
+      </main>
+
+
       <Footer />
 
       <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true">
@@ -603,10 +611,6 @@ export default function Home() {
           />
         </defs>
       </svg>
-
-      <Link to="/contact?enquiry=quote" className={`sticky-cta${stickyOn ? ' is-on' : ''}`} id="stickyCta">
-        Request a quote
-      </Link>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA) }} />
     </>

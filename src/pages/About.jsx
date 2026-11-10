@@ -35,6 +35,8 @@ export default function About() {
         </div>
       </header>
 
+      <main id="main">
+
       <section className="about-splithero reveal">
         <img src="/assets/images/about-hero-barley.webp" alt="Green barley field at dusk" />
         <blockquote className="about-splithero__quote">
@@ -297,6 +299,9 @@ export default function About() {
           </Link>
         </div>
       </section>
+
+      </main>
+
 
       <Footer />
     </>

@@ -46,6 +46,8 @@ export default function Blog() {
         </div>
       </header>
 
+      <main id="main">
+
       <div className="blog-banner reveal">
         <img src="/assets/images/contact-hero-bg.webp" alt="Leaves" />
       </div>
@@ -57,6 +59,9 @@ export default function Blog() {
           ))}
         </div>
       </section>
+
+      </main>
+
 
       <Footer />
     </>

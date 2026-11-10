@@ -111,6 +111,8 @@ export default function SupplyChain() {
         </div>
       </header>
 
+      <main id="main">
+
       <section className="supply-process">
         <div className="content-wrap supply-process__inner">
           <div className="supply-process__header reveal">
@@ -357,6 +359,9 @@ export default function SupplyChain() {
           </form>
         </div>
       </section>
+
+      </main>
+
 
       <Footer />
     </>

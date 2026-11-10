@@ -52,6 +52,7 @@ export default function Contact() {
 
   return (
     <>
+      <main id="main">
       <section className="contact" id="contact">
         <div className="contact__hero">
           <div className="contact__hero-inner content-wrap">
@@ -122,9 +123,11 @@ export default function Contact() {
                       placeholder="jane@company.com"
                       required
                       ref={emailRef}
+                      aria-invalid={emailError || undefined}
+                      aria-describedby={emailError ? 'contactEmailError' : undefined}
                       onInput={() => emailError && setEmailError(false)}
                     />
-                    <p className="contact-field__error" id="contactEmailError" hidden={!emailError}>
+                    <p className="contact-field__error" id="contactEmailError" role="alert" hidden={!emailError}>
                       Please enter a valid work email address.
                     </p>
                   </div>
@@ -191,6 +194,7 @@ export default function Contact() {
                 <div
                   className="contact-card__panel contact-card__panel--state"
                   id="contactSuccess"
+                  role="status"
                   hidden={panel !== 'success'}
                 >
                   <div className="contact-card__icon contact-card__icon--success">
@@ -208,6 +212,7 @@ export default function Contact() {
                 <div
                   className="contact-card__panel contact-card__panel--state"
                   id="contactError"
+                  role="alert"
                   hidden={panel !== 'error'}
                 >
                   <div className="contact-card__icon contact-card__icon--error">
@@ -262,6 +267,9 @@ export default function Contact() {
           </div>
         </div>
       </section>
+
+      </main>
+
 
       <Footer />
     </>

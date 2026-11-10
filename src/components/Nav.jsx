@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const LINKS = [
@@ -13,9 +13,22 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
 
+  // Escape closes the phone menu and hands focus back to the button
+  useEffect(() => {
+    if (!open) return undefined;
+    const onKey = (e) => {
+      if (e.key === 'Escape') {
+        setOpen(false);
+        document.getElementById('navToggle')?.focus();
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [open]);
+
   return (
     <nav className="nav" id="nav">
-      <Link to="/" className="nav__logo" aria-label="Trueleaf home">
+      <Link to="/" className="nav__logo" aria-label="Truleaf home">
         <img src="/assets/icons/logo.svg" alt="Truleaf" className="nav__logo-img" />
       </Link>
 

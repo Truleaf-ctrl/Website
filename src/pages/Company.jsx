@@ -91,6 +91,8 @@ export default function Company() {
         </div>
       </header>
 
+      <main id="main">
+
       <section className="company-policies" id="policies">
         <div className="content-wrap">
           <div className="company-head reveal">
@@ -205,6 +207,9 @@ export default function Company() {
           </div>
         </div>
       </section>
+
+      </main>
+
 
       <Footer />
     </>

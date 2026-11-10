@@ -90,6 +90,33 @@ function ProductOverlay({ data, isOpen, onClose }) {
     if (isOpen) closeRef.current?.focus();
   }, [isOpen, data]);
 
+  // keep Tab / Shift+Tab inside the open sheet (it is a modal dialog)
+  const panelRef = useRef(null);
+  useEffect(() => {
+    if (!isOpen) return undefined;
+    const onKey = (e) => {
+      if (e.key !== 'Tab' || !panelRef.current) return;
+      const items = [...panelRef.current.querySelectorAll('a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])')].filter(
+        (el) => !el.disabled && el.offsetParent !== null,
+      );
+      if (!items.length) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      } else if (!panelRef.current.contains(document.activeElement)) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [isOpen]);
+
   // the breadcrumb's last step points at the page the overlay is open on: just close the overlay
   const onSamePage = (e, href) => {
     const target = new URL(href, window.location.origin);
@@ -114,9 +141,9 @@ function ProductOverlay({ data, isOpen, onClose }) {
   const chart = Array.isArray(d.productChart) ? d.productChart : [];
 
   return (
-    <div className={`overlay${isOpen ? ' is-open' : ''}`} id="productOverlay" aria-hidden={!isOpen}>
+    <div className={`overlay${isOpen ? ' is-open' : ''}`} id="productOverlay" aria-hidden={!isOpen} {...(!isOpen ? { inert: '' } : {})}>
       <div className="overlay__backdrop" onClick={onClose}></div>
-      <div className="overlay__panel" role="dialog" aria-modal="true" aria-labelledby="overlayTitle">
+      <div className="overlay__panel" role="dialog" aria-modal="true" aria-labelledby="overlayTitle" ref={panelRef}>
         <div className="overlay__top">
           <p className="overlay__breadcrumb">{data && <Breadcrumb data={d} onSamePage={onSamePage} />}</p>
           <button className="overlay__close" type="button" aria-label="Close" onClick={onClose} ref={closeRef}>

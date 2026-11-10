@@ -187,6 +187,8 @@ export default function ProductsCoconut() {
         </div>
       </header>
 
+      <main id="main">
+
       <div className="split-hero reveal">
         <img src="/assets/images/hero-split.webp" alt="" />
       </div>
@@ -260,6 +262,9 @@ export default function ProductsCoconut() {
           </div>
         </div>
       </section>
+
+      </main>
+
 
       <Footer />
     </>

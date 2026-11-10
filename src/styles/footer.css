@@ -17,7 +17,7 @@
 .footer-social a.footer-social__btn:focus-visible{ outline:2px solid #fff; outline-offset:3px; }
 .footer-cols{ display:flex; gap:64px; }
 .footer-col{ display:flex; flex-direction:column; gap:24px; min-width:137px; }
-.footer-col h4{ font-family:'Instrument Sans', sans-serif; font-weight:700; font-size:14px; line-height:20px; letter-spacing:1.25px; text-transform:uppercase; color:#fff; margin:0; }
+.footer-col h2{ font-family:'Instrument Sans', sans-serif; font-weight:700; font-size:14px; line-height:20px; letter-spacing:1.25px; text-transform:uppercase; color:#fff; margin:0; }
 .footer-col ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:24px; }
 .footer-col a{ font-family:'Instrument Sans', sans-serif; font-size:14px; line-height:20px; letter-spacing:-.15px; color:rgba(255,255,255,.6); transition:color .25s cubic-bezier(.2,.7,.2,1); }
 .footer-col a:hover{ color:#fff; }

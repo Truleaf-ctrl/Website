@@ -124,6 +124,8 @@ export default function Catalogue() {
         </div>
       </header>
 
+      <main id="main">
+
       <section className="catalogue-section" id="organic">
         <div className="content-wrap catalogue-section__grid">
           <div className="catalogue-section__intro">
@@ -153,6 +155,9 @@ export default function Catalogue() {
           <CategoryList id="conventionalProductList" items={lists.conventional} grade="conventional" />
         </div>
       </section>
+
+      </main>
+
 
       <Footer />
     </>

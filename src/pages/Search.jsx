@@ -137,6 +137,8 @@ export default function Search() {
         </div>
       </header>
 
+      <main id="main">
+
       <div className="search-tabs-bar" id="searchTabsBar" hidden={!(ready && total > 0 && groups.length > 2)}>
         <div className="content-wrap search-tabs" id="searchTabs" role="group" aria-label="Filter results">
           {groups.map((g) => (
@@ -241,6 +243,9 @@ export default function Search() {
           </div>
         </div>
       </section>
+
+      </main>
+
 
       <Footer />
     </>

@@ -104,6 +104,9 @@ export default function AppShell() {
   const { pathname, search } = useLocation();
   return (
     <ProductOverlayProvider>
+      <a className="skip-link" href="#main">
+        Skip to main content
+      </a>
       <ScrollManager />
       {/* keyed so each page (and its effects) starts fresh when the URL changes */}
       <Outlet key={pathname + search} />

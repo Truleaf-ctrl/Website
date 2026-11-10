@@ -121,6 +121,8 @@ export default function BlogPost() {
         </div>
       </header>
 
+      <main id="main">
+
       <div className="blog-banner reveal">
         <img src={post?.image || undefined} alt={post?.title || ''} id="postHeroImage" />
       </div>
@@ -142,6 +144,9 @@ export default function BlogPost() {
           </div>
         </div>
       </section>
+
+      </main>
+
 
       <Footer />
     </>

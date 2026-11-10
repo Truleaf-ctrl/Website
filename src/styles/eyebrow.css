@@ -124,3 +124,22 @@ body .cta-photo__frame::before {
 body .supply-hero { background: linear-gradient(rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.58)), url('/webimg/banana-leaf.webp') center / cover no-repeat; }
 body .cta-photo__fact-label,
 body .cta-photo__fact-note { color: #fff; }
+
+/* ---------------------------------------------------------------
+   Keyboard access: skip link + a clear focus ring everywhere
+   --------------------------------------------------------------- */
+.skip-link {
+  position: fixed; top: 8px; left: 8px; z-index: 10000;
+  padding: 12px 18px; border-radius: 999px;
+  background: #272c7d; color: #fff; font: 600 14px 'Instrument Sans', sans-serif; text-decoration: none;
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: none; outline: 3px solid #7fd6ec; outline-offset: 2px; }
+
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid #272c7d;
+  outline-offset: 3px;
+}
+:where(.hero, .supply-hero, .site-footer, .company-speakup, .cta-photo, .overlay__panel[data-dark]) :where(a, button, input, select, textarea):focus-visible {
+  outline-color: #fff;
+}
