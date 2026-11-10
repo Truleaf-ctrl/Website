@@ -47,7 +47,7 @@ export default function Blog() {
       </header>
 
       <div className="blog-banner reveal">
-        <img src="/assets/images/contact-hero-bg.webp" alt="Leaves" />
+        <img src="/assets/images/blog-banner.webp" alt="Rolling green hills and orchard trees in evening light" />
       </div>
 
       <section className="blog-grid">
