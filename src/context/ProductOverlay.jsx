@@ -1,6 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
+
 // Product detail overlay (the bottom sheet). Shared by the product listing page,
 // the search results page and the search type-ahead: call `openProduct(data)`.
 //
@@ -50,10 +51,10 @@ function Breadcrumb({ data, onSamePage }) {
   );
 }
 
-function Accordion({ label, text }) {
+function Accordion({ label, text, open = false }) {
   if (!text) return null;
   return (
-    <details className="overlay__acc">
+    <details className="overlay__acc" open={open}>
       <summary>{label}</summary>
       <div className="overlay__acc-body">
         {sentences(text).map((t, i) => (
@@ -61,6 +62,22 @@ function Accordion({ label, text }) {
         ))}
       </div>
     </details>
+  );
+}
+
+// long descriptions show about three lines, with a toggle for the rest
+function Description({ text }) {
+  const [open, setOpen] = useState(false);
+  const long = String(text || '').length > 190;
+  return (
+    <div className="overlay__desc-wrap">
+      <p className={`overlay__desc${long && !open ? ' is-clamped' : ''}`}>{text || ''}</p>
+      {long && (
+        <button type="button" className="overlay__more" onClick={() => setOpen((o) => !o)} aria-expanded={open}>
+          {open ? 'Show less' : 'Read more'}
+        </button>
+      )}
+    </div>
   );
 }
 
@@ -103,7 +120,10 @@ function ProductOverlay({ data, isOpen, onClose }) {
         <div className="overlay__top">
           <p className="overlay__breadcrumb">{data && <Breadcrumb data={d} onSamePage={onSamePage} />}</p>
           <button className="overlay__close" type="button" aria-label="Close" onClick={onClose} ref={closeRef}>
-            <img src="/assets/icons/overlay-arrow.svg" alt="" />
+            <span>Close</span>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M2 2l10 10M12 2L2 12" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+            </svg>
           </button>
         </div>
         {/* keyed by product so the accordions start closed for every product */}
@@ -112,29 +132,31 @@ function ProductOverlay({ data, isOpen, onClose }) {
             <img src={d.productImage || undefined} alt={d.productName || ''} />
           </div>
           <div className="overlay__details">
-            <h2 className="overlay__title" id="overlayTitle">
-              {d.productName || ''}
-            </h2>
-            <p className="overlay__desc">{d.productDesc || ''}</p>
-            <div className="overlay__facts" hidden={!facts.length}>
+            <div className="overlay__head">
+              <h2 className="overlay__title" id="overlayTitle">
+                {d.productName || ''}
+              </h2>
+              <Link to="/contact" className="btn btn--primary overlay__cta overlay__cta--top" onClick={onClose}>
+                Enquire
+              </Link>
+            </div>
+            <ul className="overlay__chips" hidden={!certs.length} aria-label="Certifications">
+              {certs.map((c) => (
+                <li key={c}>{c}</li>
+              ))}
+            </ul>
+            <Description text={d.productDesc} />
+            <dl className="overlay__specs" hidden={!facts.length}>
               {facts.map(([label, v, italic]) => (
-                <div key={label} className={`overlay__fact${String(v).length > 42 ? ' overlay__fact--wide' : ''}`}>
-                  <span className="overlay__fact-label">{label}</span>
-                  <span className={`overlay__fact-value${italic ? ' is-italic' : ''}`}>{v}</span>
+                <div key={label} className="overlay__spec">
+                  <dt>{label}</dt>
+                  <dd className={italic ? 'is-italic' : ''}>{v}</dd>
                 </div>
               ))}
-            </div>
-            <div className="overlay__certs" hidden={!certs.length}>
-              <p className="overlay__block-label">Certifications</p>
-              <ul className="overlay__chips">
-                {certs.map((c) => (
-                  <li key={c}>{c}</li>
-                ))}
-              </ul>
-            </div>
+            </dl>
             <div className="overlay__acc-list">
-              <Accordion label="Available packaging" text={d.productPackaging} />
-              <Accordion label="Grade options" text={d.productGrades} />
+              <Accordion label="Available packaging" text={d.productPackaging} open />
+              <Accordion label="Grade options" text={d.productGrades} open />
               {chart.length > 0 && (
                 <details className="overlay__acc">
                   <summary>Size &amp; grade chart</summary>
@@ -163,6 +185,12 @@ function ProductOverlay({ data, isOpen, onClose }) {
               <Link to="/contact" className="btn btn--primary overlay__cta" onClick={onClose}>
                 Enquire
               </Link>
+              <a
+                className="overlay__cta-alt"
+                href={`mailto:info@truleaf.in?subject=${encodeURIComponent(`Spec sheet request: ${d.productName || 'product'}`)}`}
+              >
+                Request spec sheet
+              </a>
             </div>
           </div>
         </div>
