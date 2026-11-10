@@ -140,6 +140,7 @@ export default function Company() {
                 </Link>
               </li>
             </ul>
+          </div>
 
           <div className="company-group reveal">
             <h3 className="company-group__title">Code of Conduct</h3>
@@ -154,7 +155,6 @@ export default function Company() {
                 </a>
               </li>
             </ul>
-          </div>
           </div>
         </div>
       </section>
