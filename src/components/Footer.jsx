@@ -38,6 +38,9 @@ export default function Footer() {
                   <Link to="/about">About Us</Link>
                 </li>
                 <li>
+                  <Link to="/company">Code &amp; Policies / Speak Up</Link>
+                </li>
+                <li>
                   <Link to="/supply-chain">Ready to Retail</Link>
                 </li>
                 <li>
