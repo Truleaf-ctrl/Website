@@ -230,13 +230,13 @@ export default function Home() {
               <div className="sourcing-stats">
                 <div className="s-stat">
                   <b className="counter" data-target="100" data-suffix="+">
-                    0
+                    100+
                   </b>
                   <span>Farm clusters</span>
                 </div>
                 <div className="s-stat">
                   <b className="counter" data-target="24" data-suffix="+">
-                    0
+                    24+
                   </b>
                   <span>Products</span>
                 </div>
@@ -291,7 +291,7 @@ export default function Home() {
             <h3 className="mission-card-title">Traceable by design</h3>
             <div className="mission-card-foot">
               <b className="m-stat-num counter" data-target="100" data-suffix="+">
-                0
+                100+
               </b>
               <p>Farm clusters in our organic producer network, each traceable from farm to port</p>
             </div>

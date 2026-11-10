@@ -126,6 +126,7 @@ export function useHomeReveals() {
           const target = parseInt(el.dataset.target, 10);
           const suf = el.dataset.suffix || '';
           const o = { v: 0 };
+          el.textContent = '0' + suf;
           gsap.to(o, {
             v: target,
             duration: 1.6,
@@ -135,8 +136,8 @@ export function useHomeReveals() {
         });
       };
       ScrollTrigger.create({
-        trigger: '#missionCards',
-        start: 'top 85%',
+        trigger: '.m-stat-num',
+        start: 'top 92%',
         once: true,
         onEnter: () => runCounters(document.getElementById('missionCards')),
       });

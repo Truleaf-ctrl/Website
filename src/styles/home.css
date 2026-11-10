@@ -105,7 +105,6 @@
   .mission-card--photo p{ font-family:var(--font-body); font-size:16px; line-height:1.4; color:#dedee6; max-width:343px; }
 
   .mission-card--teal{ background:#2396b4; color:#f3f3f7; gap:72px; }
-  .mission-card--teal > *{ margin:0 -1px 0 -10px; } /* design inset: content starts 14px from the left edge, 23px from the right */
   .mission-teal-top{ display:flex; align-items:flex-start; justify-content:space-between; gap:16px; font-family:var(--font-body); font-size:16px; line-height:1.4; }
   .mission-pill{ flex-shrink:0; display:flex; align-items:center; justify-content:center; box-sizing:border-box; height:44px; padding:9px 17px; border:1px solid var(--white); border-radius:100px; }
   .mission-pill img{ width:22px; height:17.5px; display:block; }
@@ -121,7 +120,6 @@
     .mission-cards{ flex-direction:column; }
     .mission-card{ flex:none; }
     .mission-card{ min-height:320px; }
-    .mission-card--teal > *{ margin:0; }
     .mission-card--teal{ gap:40px; }
   }
   @media(max-width:520px){
