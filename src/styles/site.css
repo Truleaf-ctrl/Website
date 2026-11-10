@@ -3891,3 +3891,8 @@ h1, h2, h3, p { margin: 0; }
   .supply-hero--split .nav { top: 24px; }
   .company-hero { padding: 24px 16px 64px; }
 }
+
+/* Phones: cards in a stack share one height */
+@media (max-width: 720px) {
+  .supply-handle__grid { grid-auto-rows: 1fr; }
+}

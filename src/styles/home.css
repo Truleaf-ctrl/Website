@@ -122,13 +122,13 @@
     .mission-card{ flex:none; }
     .mission-card{ min-height:320px; }
     .mission-card--teal > *{ margin:0; }
-    .mission-card--teal{ min-height:0; gap:40px; }
+    .mission-card--teal{ gap:40px; }
   }
   @media(max-width:520px){
     .mission-title{ font-size:26px; }
     .mission-title__br{ display:none; }
     .mission-card{ padding:24px 22px; min-height:280px; }
-    .mission-card--teal{ min-height:0; gap:32px; }
+    .mission-card--teal{ gap:32px; }
   }
 
   /* ---------------- SOURCING / ORIGIN ---------------- */
@@ -396,7 +396,7 @@
     .retail-inner{ gap:40px; }
     .retail .section-head-title{ font-size:30px; line-height:1.3; }
   }
-  @media(max-width:560px){ .retail-points{ grid-template-columns:1fr; } }
+  @media(max-width:560px){ .retail-points{ grid-template-columns:1fr; grid-auto-rows:1fr; } }
 
   /* ---- How buying works: timeline ---- */
   .buying{ padding:80px var(--page-margin); background:var(--white); }
