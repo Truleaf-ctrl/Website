@@ -9,6 +9,12 @@ import { SITE_CSS } from '../styles/site';
 const SPEAK_UP_MAIL = 'mailto:info@truleaf.in?subject=Speak%20Up';
 
 // PDFs live in /public/documents. A row with no `file` shows a "Request a copy" email instead.
+const CODE_OF_CONDUCT = {
+  title: 'Code of Conduct and Business Ethics',
+  body: 'The standards of honesty, integrity and accountability we expect from everyone who works for or with Truleaf.',
+  file: '/documents/Truleaf-Code-of-Conduct-and-Business-Ethics.pdf',
+};
+
 const TRADE_TERMS = [
   {
     title: 'Terms & Conditions of Purchase',
@@ -93,6 +99,21 @@ export default function Company() {
             <p className="company-lede">
               How we trade, what we expect of our partners, and how we protect your information.
             </p>
+          </div>
+
+          <div className="company-group reveal">
+            <h3 className="company-group__title">Code of Conduct</h3>
+            <ul className="company-docs">
+              <li className="company-doc">
+                <div className="company-doc__text">
+                  <h4>{CODE_OF_CONDUCT.title}</h4>
+                  <p>{CODE_OF_CONDUCT.body}</p>
+                </div>
+                <a className="company-doc__btn" href={CODE_OF_CONDUCT.file} download>
+                  Download PDF
+                </a>
+              </li>
+            </ul>
           </div>
 
           <div className="company-group reveal">
