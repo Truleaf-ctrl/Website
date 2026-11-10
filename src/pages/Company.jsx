@@ -128,7 +128,7 @@ export default function Company() {
           </div>
 
           <div className="company-group reveal">
-            <h3 className="company-group__title">Privacy Policy &amp; Terms of Use</h3>
+            <h3 className="company-group__title">Privacy Policy</h3>
             <ul className="company-docs">
               <li className="company-doc">
                 <div className="company-doc__text">
@@ -138,13 +138,6 @@ export default function Company() {
                 <Link className="company-doc__btn" to="/privacy-policy">
                   Read policy
                 </Link>
-              </li>
-              <li className="company-doc">
-                <div className="company-doc__text">
-                  <h4>Terms of Use</h4>
-                  <p>The terms for using this website.</p>
-                </div>
-                <span className="company-doc__soon">Coming soon</span>
               </li>
             </ul>
 
