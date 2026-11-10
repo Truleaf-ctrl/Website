@@ -3812,8 +3812,8 @@ h1, h2, h3, p { margin: 0; }
 .company-head { display: flex; flex-direction: column; gap: 16px; max-width: 720px; margin-bottom: 52px; }
 .company-h2 { font-family: var(--font-display); font-weight: 500; font-size: clamp(28px, 3.6vw, 42px); line-height: 1.15; letter-spacing: -1.4px; color: var(--color-text-primary); }
 .company-lede { font-family: var(--font-ui); font-size: 17px; line-height: 1.55; color: var(--color-text-secondary); }
-.company-group { margin-top: 12px; }
-.company-group + .company-group { margin-top: 48px; }
+.company-group { margin: 0; padding-bottom: 48px; }
+.company-group:last-child { padding-bottom: 0; }
 .company-group__title { font-family: var(--font-display); font-weight: 500; font-size: 24px; letter-spacing: -0.5px; color: var(--color-text-primary); margin-bottom: 16px; }
 .company-docs { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
 .company-doc { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 24px 28px; background: #f3f3f7; border-radius: 20px; }
