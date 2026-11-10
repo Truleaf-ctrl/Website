@@ -2747,7 +2747,7 @@ h1, h2, h3, p { margin: 0; }
 
 .catalogue-hero {
   background: linear-gradient(90deg, #1f2254, #454bba);
-  padding: 32px clamp(16px, 4vw, 80px) 56px;
+  padding: 44px clamp(16px, 4vw, 80px) 56px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -3884,4 +3884,10 @@ h1, h2, h3, p { margin: 0; }
   .legal__layout { grid-template-columns: 1fr; gap: 32px; }
   .legal__toc { position: static; max-height: none; padding: 20px; background: #f3f3f7; border-radius: 16px; }
   .legal__contact > div { grid-template-columns: 1fr; gap: 4px; }
+}
+
+/* Nav bar: same place and size on every page on phones (16px from the sides, 24px from the top) */
+@media (max-width: 720px) {
+  .supply-hero--split .nav { top: 24px; }
+  .company-hero { padding: 24px 16px 64px; }
 }
