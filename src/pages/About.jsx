@@ -36,7 +36,7 @@ export default function About() {
       </header>
 
       <section className="about-splithero reveal">
-        <img src="/assets/images/about-hero-wheat.webp" alt="Green wheat ears lying in the field" />
+        <img src="/assets/images/about-hero-barley.webp" alt="Green barley field at dusk" />
         <blockquote className="about-splithero__quote">
           <p>
             &ldquo;Every ingredient has a source, a story, and a standard. Our responsibility is to make sure all three
