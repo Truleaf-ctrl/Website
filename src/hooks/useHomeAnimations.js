@@ -119,10 +119,11 @@ export function useHomeReveals() {
       });
 
       /* count-up stats */
+      const counted = new WeakSet(); // per effect run, so React dev double-mount can't leave a counter frozen at 0
       const runCounters = (scope) => {
         scope.querySelectorAll('.counter').forEach((el) => {
-          if (el.dataset.done) return;
-          el.dataset.done = '1';
+          if (counted.has(el)) return;
+          counted.add(el);
           const target = parseInt(el.dataset.target, 10);
           const suf = el.dataset.suffix || '';
           const o = { v: 0 };
