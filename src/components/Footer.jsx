@@ -40,7 +40,7 @@ export default function Footer() {
                   <Link to="/company">Code &amp; Policies / Speak Up</Link>
                 </li>
                 <li>
-                  <Link to="/supply-chain">Ready to Retail</Link>
+                  <Link to="/retail-to-business">Ready to Retail</Link>
                 </li>
                 <li>
                   <Link to="/catalogue">Product Catalogue</Link>

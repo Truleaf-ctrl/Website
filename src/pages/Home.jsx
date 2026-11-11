@@ -585,7 +585,7 @@ export default function Home() {
             </li>
           </ul>
           <div className="retail-actions">
-            <Link to="/supply-chain" className="btn btn-brand">
+            <Link to="/retail-to-business" className="btn btn-brand">
               Explore private label{' '}
               <svg viewBox="0 0 16 16" fill="none">
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />

@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 
 const LINKS = [
   ['/catalogue', 'Products'],
-  ['/supply-chain', 'Retail to Business'],
+  ['/retail-to-business', 'Retail to Business'],
   ['/blog', 'Blog'],
   ['/about', 'About Us'],
+  ['/company', 'Company'],
   ['/careers', 'Careers'],
 ];
 
