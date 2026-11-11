@@ -6,8 +6,8 @@ const LINKS = [
   ['/retail-to-business', 'Retail to Business'],
   ['/blog', 'Blog'],
   ['/about', 'About Us'],
-  ['/company', 'Company'],
   ['/careers', 'Careers'],
+  ['/company', 'Company'],
 ];
 
 export default function Nav() {
