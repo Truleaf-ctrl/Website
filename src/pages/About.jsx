@@ -203,10 +203,11 @@ export default function About() {
                 <p className="about-person__name">Renious Charles</p>
                 <p className="about-person__role">Director, Commercial &amp; Technical</p>
                 <p className="about-person__bio">
-                  With a background in Food Processing Engineering and over 10 years of industry experience, Renious
-                  founded Truleaf Foods in 2022 with a vision to build a trusted business in agricultural products and
-                  ingredients. His experience in food quality, processing, and regulatory compliance informs the
-                  company’s approach to sourcing, supplier relationships, and responsible trade.
+                  Founded in 2022 by Renious, Truleaf Foods was established with a vision to build a trusted enterprise in
+                  agricultural products and ingredients. Leveraging over a decade of industry expertise in Food Processing
+                  Engineering, Renious applies deep knowledge of food quality, processing standards, and regulatory
+                  compliance to guide the company’s sourcing strategy, supplier partnerships, and commitment to
+                  responsible trade.
                 </p>
               </div>
             </article>
