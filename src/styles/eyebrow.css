@@ -210,3 +210,37 @@ body .hero__story { font-size: 16px; line-height: 1.55; color: rgba(255, 255, 25
   body .hero__eyebrow { font-size: 10px; letter-spacing: .08em; }
   body .hero__content { gap: 16px; }
 }
+
+/* ---------------------------------------------------------------
+   Secondary (outline) buttons, site-wide: clearer than a hairline,
+   still lighter than the filled primary button (2px so it holds on 1x screens too).
+   --------------------------------------------------------------- */
+body .btn--ghost,
+body .btn--outline,
+body .btn-outline,
+body .company-doc__btn--ghost {
+  border-width: 2px;
+  border-style: solid;
+  font-family: var(--font-body, 'Instrument Sans', sans-serif);
+  font-weight: 500;
+}
+body .btn--ghost:hover,
+body .btn--outline:hover,
+body .btn-outline:hover,
+body .company-doc__btn--ghost:hover {
+  background: var(--color-action-primary, #272c7d);
+  color: #fff;
+  border-color: var(--color-action-primary, #272c7d);
+}
+body .btn--ghost:hover img { filter: invert(1); }
+
+/* on photos / dark backgrounds */
+body .supply-hero__cta-row .btn--ghost,
+body .cta-photo__cta.btn--ghost { border-color: rgba(255, 255, 255, 0.85); color: #fff; font-weight: 500; }
+body .supply-hero__cta-row .btn--ghost:hover,
+body .cta-photo__cta.btn--ghost:hover { background: rgba(255, 255, 255, 0.2); color: #fff; border-color: #fff; }
+body .supply-hero__cta-row .btn--ghost:hover img,
+body .cta-photo__cta.btn--ghost:hover img { filter: invert(1); }
+body .btn-glass,
+body .btn--outline-light { border-width: 2px; border-color: rgba(255, 255, 255, 0.75); font-weight: 600; }
+body .supply-banner__btn--line { border-width: 2px; border-color: rgba(255, 255, 255, 0.85); }
