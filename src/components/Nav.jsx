@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const LINKS = [
   ['/catalogue', 'Products'],
-  ['/retail-to-business', 'Retail to Ready'],
+  ['/retail-to-business', 'Ready to Retail'],
   ['/blog', 'Blog'],
   ['/about', 'About Us'],
   ['/careers', 'Careers'],

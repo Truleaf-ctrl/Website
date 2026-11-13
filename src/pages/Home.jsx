@@ -559,7 +559,7 @@ export default function Home() {
       <section className="retail" id="retail">
         <div className="retail-inner">
           <div className="retail-copy">
-            <span className="section-eyebrow">Retail to Ready</span>
+            <span className="section-eyebrow">Ready to Retail</span>
             <h2 className="section-head-title">Got a product idea? We&apos;ll make it retail-ready.</h2>
             <p>
               From bulk ingredient to shelf-ready pack: sourcing, formulation, compliance and private-label production,

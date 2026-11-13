@@ -85,7 +85,7 @@ export default function SupplyChain() {
 
         <div className="supply-banner__grid">
           <div className="supply-banner__copy reveal">
-          <p className="supply-banner__eyebrow">Retail to Ready</p>
+          <p className="supply-banner__eyebrow">Ready to Retail</p>
           <h1 className="supply-banner__title">
             Got a product idea?
             <br />
