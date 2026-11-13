@@ -171,6 +171,11 @@ export default function SupplyChain() {
             )}
           </div>
         </div>
+        <div className="content-wrap supply-categories__cta reveal">
+          <Link to="/contact" className="btn supply-process__cta">
+            Start Your Private Label
+          </Link>
+        </div>
       </section>
 
       <section className="cta-photo">
