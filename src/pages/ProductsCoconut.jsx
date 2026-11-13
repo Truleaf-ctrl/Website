@@ -8,6 +8,10 @@ import useMotion from '../hooks/useMotion';
 import { SITE_CSS } from '../styles/site';
 import { sanityFetch, urlForImageRef } from '../lib/sanity';
 import { useProductOverlay } from '../context/ProductOverlay';
+import Pagination, { scrollToList, usePageParam } from '../components/Pagination';
+
+// the list rows are tall, so ten per page keeps each page a comfortable scroll
+const PRODUCT_PAGE_SIZE = 10;
 
 // Products page for one subcategory of one grade: /products-coconut?category=<slug>&grade=<organic|conventional>
 // (defaults to organic Coconut Products). Products come from Sanity; clicking one opens its detail overlay.
@@ -135,6 +139,8 @@ export default function ProductsCoconut() {
   const ready = state.status === 'ready';
   const title = (state.category && state.category.name) || 'Products';
   const count = state.products.length;
+  const { page, totalPages, start, end } = usePageParam(params, count, PRODUCT_PAGE_SIZE);
+  const toTop = () => scrollToList('productGrid');
 
   usePage({
     title: ready ? `${title} | ${gradeLabel} | Truleaf` : 'Organic Coconut Products | Truleaf',
@@ -194,14 +200,14 @@ export default function ProductsCoconut() {
         <img src="/assets/images/hero-split.webp" alt="" />
       </div>
 
-      <section className="product-grid" aria-label="Products">
+      <section className="product-grid" id="productGrid" aria-label="Products">
         <div className="content-wrap" id="productList">
           {state.status === 'error' && (
             <p className="product-row__info">We could not load products right now. Please try again shortly.</p>
           )}
           {ready && !count && <p className="product-row__info">Products for this category are coming soon.</p>}
           {ready &&
-            state.products.map((p) => (
+            state.products.slice(start, end).map((p) => (
               <ProductRow
                 key={p.name}
                 product={p}
@@ -211,6 +217,7 @@ export default function ProductsCoconut() {
                 onOpen={openProduct}
               />
             ))}
+          {ready && <Pagination page={page} totalPages={totalPages} onNavigate={toTop} label="Product pages" />}
         </div>
       </section>
 

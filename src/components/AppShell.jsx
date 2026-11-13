@@ -64,13 +64,27 @@ function ScrollProgress() {
   return <div className="scroll-progress" aria-hidden="true" ref={bar} />;
 }
 
+// ?page=N only changes which slice of a list is shown: it is not a new page, so it neither
+// remounts the page nor jumps to the top (the list scrolls itself into view instead).
+export const withoutPageParam = (search) => {
+  const params = new URLSearchParams(search);
+  params.delete('page');
+  const qs = params.toString();
+  return qs ? `?${qs}` : '';
+};
+
 // New page: start at the top, or at the #section the link points to.
 function ScrollManager() {
-  const { pathname, search, hash } = useLocation();
+  const { pathname, search: fullSearch, hash } = useLocation();
+  const search = withoutPageParam(fullSearch);
   const navType = useNavigationType();
 
+  // navType is read through a ref so it never re-triggers the effect by itself:
+  // only a new path, query (not ?page) or #hash counts as a new place to scroll to
+  const navTypeRef = useRef(navType);
+  navTypeRef.current = navType;
   useLayoutEffect(() => {
-    if (navType === 'POP' && !hash) return;
+    if (navTypeRef.current === 'POP' && !hash) return undefined;
     const toTop = () => {
       if (lenis) lenis.scrollTo(0, { immediate: true });
       window.scrollTo(0, 0);
@@ -88,7 +102,7 @@ function ScrollManager() {
       else el.scrollIntoView();
     });
     return () => cancelAnimationFrame(frame);
-  }, [pathname, search, hash, navType]);
+  }, [pathname, search, hash]);
 
   // ScrollTrigger needs fresh measurements after every page swap
   useEffect(() => {
@@ -101,7 +115,8 @@ function ScrollManager() {
 
 export default function AppShell() {
   useSmoothScroll();
-  const { pathname, search } = useLocation();
+  const { pathname, search: fullSearch } = useLocation();
+  const search = withoutPageParam(fullSearch);
   return (
     <ProductOverlayProvider>
       <a className="skip-link" href="#main">

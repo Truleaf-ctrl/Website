@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import Pagination, { scrollToList, usePageParam } from '../components/Pagination';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import BlogCard from '../components/BlogCard';
@@ -8,6 +10,9 @@ import useMotion from '../hooks/useMotion';
 import { sanityFetch } from '../lib/sanity';
 import { SITE_CSS } from '../styles/site';
 
+// 9 = three full rows of the three-column grid
+const BLOG_PAGE_SIZE = 9;
+
 export default function Blog() {
   usePage({
     title: 'Blog | Truleaf',
@@ -15,10 +20,14 @@ export default function Blog() {
     path: '/blog',
     css: SITE_CSS,
   });
-  useReveal();
   useMotion();
 
   const [posts, setPosts] = useState([]);
+  const [searchParams] = useSearchParams();
+  const { page, totalPages, start, end } = usePageParam(searchParams, posts.length, BLOG_PAGE_SIZE);
+  // re-scan on page change so the new cards fade in
+  useReveal([page, posts.length]);
+  const toTop = () => scrollToList('blogGrid');
 
   useEffect(() => {
     let alive = true;
@@ -52,11 +61,14 @@ export default function Blog() {
         <img src="/assets/images/contact-hero-bg.webp" alt="Leaves" />
       </div>
 
-      <section className="blog-grid">
-        <div className="content-wrap blog-grid__inner reveal-stagger" id="blogGridInner">
-          {posts.map((post) => (
+      <section className="blog-grid" id="blogGrid">
+        <div key={page} className="content-wrap blog-grid__inner reveal-stagger" id="blogGridInner">
+          {posts.slice(start, end).map((post) => (
             <BlogCard key={post.slug} post={post} />
           ))}
+        </div>
+        <div className="content-wrap">
+          <Pagination page={page} totalPages={totalPages} onNavigate={toTop} label="Blog pages" />
         </div>
       </section>
 
