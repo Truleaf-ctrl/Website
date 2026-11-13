@@ -143,3 +143,7 @@ body .cta-photo__fact-note { color: #fff; }
 :where(.hero, .supply-hero, .site-footer, .company-speakup, .cta-photo, .overlay__panel[data-dark]) :where(a, button, input, select, textarea):focus-visible {
   outline-color: #fff;
 }
+
+/* Category and trend card titles: same Lora weight as the other card titles and section headings */
+body .category-card__info h3,
+body .trend-card h3 { font-weight: 500; }
