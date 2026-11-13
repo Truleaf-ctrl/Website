@@ -643,3 +643,14 @@
   .overlay__spec { grid-template-columns: 1fr; gap: 2px; }
   .overlay__actions { flex-wrap: wrap; justify-content: center; gap: 12px; }
 }
+
+/* accessibility: breadcrumb links get a 24px-high hit area (WCAG 2.5.8) and the slash separators reach 4.5:1 */
+.overlay__breadcrumb a,
+.overlay__breadcrumb span.is-current { display: inline-flex; align-items: center; min-height: 28px; }
+.overlay__breadcrumb .overlay__sep { color: #6b6b76; }
+
+/* phones: the trail is a short stack (no wrapping slash), the current page is the bold last line */
+@media (max-width: 560px) {
+  .overlay__breadcrumb { flex-direction: column; align-items: flex-start; row-gap: 0; }
+  .overlay__breadcrumb .overlay__sep { display: none; }
+}
