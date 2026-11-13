@@ -302,3 +302,6 @@ body .pager__status { display: none; margin: 0; font-size: 14px; color: #45454c;
   body .pager__status { display: block; text-align: center; flex: 1; }
   body .pager__step { padding: 0 12px; }
 }
+
+/* blog banner: keep the limes in frame on the wide, short crop */
+body .blog-banner img { object-position: 62% 55%; }

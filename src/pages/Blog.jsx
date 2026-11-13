@@ -58,7 +58,7 @@ export default function Blog() {
       <main id="main">
 
       <div className="blog-banner reveal">
-        <img src="/assets/images/contact-hero-bg.webp" alt="Leaves" />
+        <img src="/webimg/blog-banner.webp" alt="" />
       </div>
 
       <section className="blog-grid" id="blogGrid">
