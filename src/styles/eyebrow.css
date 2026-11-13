@@ -246,3 +246,8 @@ body .cta-photo__cta.btn--ghost:hover img { filter: invert(1); }
 body .btn-glass,
 body .btn--outline-light { border-width: 2px; border-color: rgba(255, 255, 255, 0.75); font-weight: 600; }
 body .supply-banner__btn--line { border-width: 2px; border-color: rgba(255, 255, 255, 0.85); }
+
+/* Search field: the whole pill shows focus (a ring around only the text box looked like a stray border) */
+body .catalogue-search__input:focus,
+body .catalogue-search__input:focus-visible { outline: none; }
+body .catalogue-search:focus-within { border-color: #272c7d; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.55); }
