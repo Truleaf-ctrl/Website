@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import usePage from '../hooks/usePage';
@@ -6,10 +6,12 @@ import useReveal from '../hooks/useReveal';
 import useMotion from '../hooks/useMotion';
 import { SITE_CSS } from '../styles/site';
 import { EMAIL_PATTERN, sendForm } from '../lib/forms';
+import { sanityFetch } from '../lib/sanity';
 
-const TEAMS = ['All', 'Sourcing', 'Quality', 'R&D', 'Operations', 'Marketing'];
+const TEAM_ORDER = ['Sourcing', 'Quality', 'R&D', 'Operations', 'Marketing'];
 
-const ROLES = [
+// Shown only until the live listings load, or if they can't be reached.
+const FALLBACK_ROLES = [
   {
     team: 'Sourcing',
     title: 'Sourcing Manager',
@@ -63,9 +65,32 @@ export default function Careers() {
   useReveal();
   useMotion();
 
+  // ---- job listings (managed in Sanity; static list is the fallback)
+  const [roles, setRoles] = useState(FALLBACK_ROLES);
+  useEffect(() => {
+    let live = true;
+    sanityFetch(
+      `*[_type=="job" && active != false] | order(order asc, _createdAt asc){title, team, location, employmentType, summary}`
+    )
+      .then((rows) => {
+        if (live && Array.isArray(rows)) setRoles(rows.filter((r) => r && r.title));
+      })
+      .catch(() => {});
+    return () => {
+      live = false;
+    };
+  }, []);
+  const teamsPresent = [...new Set(roles.map((r) => r.team).filter(Boolean))];
+  const TEAMS = [
+    'All',
+    ...TEAM_ORDER.filter((t) => teamsPresent.includes(t)),
+    ...teamsPresent.filter((t) => !TEAM_ORDER.includes(t)),
+  ];
+
   // ---- role filter
   const [filter, setFilter] = useState('All');
-  const shownCount = ROLES.filter((r) => filter === 'All' || r.team === filter).length;
+  const activeFilter = TEAMS.includes(filter) ? filter : 'All';
+  const shownCount = roles.filter((r) => activeFilter === 'All' || r.team === activeFilter).length;
 
   // ---- form
   const formRef = useRef(null);
@@ -224,7 +249,7 @@ export default function Careers() {
                 <button
                   key={team}
                   type="button"
-                  className={`careers-chip${filter === team ? ' is-active' : ''}`}
+                  className={`careers-chip${activeFilter === team ? ' is-active' : ''}`}
                   data-filter={team}
                   onClick={() => setFilter(team)}
                 >
@@ -235,12 +260,12 @@ export default function Careers() {
           </div>
 
           <ul className="careers-roles__list reveal" id="careersList">
-            {ROLES.map((r) => (
+            {roles.map((r) => (
               <li
                 className="careers-role"
                 data-team={r.team}
                 key={r.title}
-                hidden={!(filter === 'All' || r.team === filter)}
+                hidden={!(activeFilter === 'All' || r.team === activeFilter)}
               >
                 <div className="careers-role__main">
                   <h3>{r.title}</h3>
@@ -249,7 +274,7 @@ export default function Careers() {
                 <ul className="careers-role__meta">
                   <li>{r.team}</li>
                   <li>{r.location}</li>
-                  <li>Full-time</li>
+                  <li>{r.employmentType || 'Full-time'}</li>
                 </ul>
                 <button type="button" className="btn btn--primary careers-role__apply" onClick={() => goApply(r.title)}>
                   Apply <img src="/assets/icons/arrow-right.svg" alt="" />
@@ -368,13 +393,12 @@ export default function Careers() {
                 <label htmlFor="careerRole">Role you're applying for</label>
                 <select id="careerRole" name="role" required value={role} onChange={(e) => setRole(e.target.value)}>
                   <option value="General application">General application</option>
-                  <option value="Sourcing Manager">Sourcing Manager</option>
-                  <option value="Quality Assurance Executive">Quality Assurance Executive</option>
-                  <option value="R&D Food Technologist">R&amp;D Food Technologist</option>
-                  <option value="Export Operations Executive">Export Operations Executive</option>
-                  <option value="Logistics Coordinator">Logistics Coordinator</option>
-                  <option value="Brand & Content Marketer">Brand &amp; Content Marketer</option>
-                </select>
+                  {roles.map((r) => (
+                    <option key={r.title} value={r.title}>
+                      {r.title}
+                    </option>
+                  ))}
+                  </select>
               </div>
 
               <div className="contact-field careers-form__full" id="careerResumeField">
