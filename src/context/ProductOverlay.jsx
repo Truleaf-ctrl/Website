@@ -147,7 +147,6 @@ function ProductOverlay({ data, isOpen, onClose }) {
         <div className="overlay__top">
           <p className="overlay__breadcrumb">{data && <Breadcrumb data={d} onSamePage={onSamePage} />}</p>
           <button className="overlay__close" type="button" aria-label="Close" onClick={onClose} ref={closeRef}>
-            <span>Close</span>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M2 2l10 10M12 2L2 12" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
             </svg>

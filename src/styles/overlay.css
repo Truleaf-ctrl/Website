@@ -105,8 +105,9 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  height: 44px;
-  padding: 0 18px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
   flex-shrink: 0;
   background: #fff;
   border: 1px solid #d8d8e2;
@@ -638,7 +639,7 @@
 }
 
 @media (max-width: 560px) {
-  .overlay__close { height: 38px; padding: 0 14px; font-size: 13px; }
+  .overlay__close { width: 36px; height: 36px; padding: 0; }
   .overlay__spec { grid-template-columns: 1fr; gap: 2px; }
   .overlay__actions { flex-wrap: wrap; justify-content: center; gap: 12px; }
 }
