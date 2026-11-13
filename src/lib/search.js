@@ -11,7 +11,7 @@ export function loadSearchData() {
         `*[_type=="category"] | order(order asc){name, shortDescription, "image": image.asset->url, "thumb": image.asset->url + "?w=96&h=96&fit=crop&auto=format"}`
       ),
       sanityFetch(
-        `*[_type=="product"] | order(order asc){name, category, grade, shortDescription, description, botanicalName, sourcedFrom, "image": image.asset->url, "overlayImage": image.asset->url + "?w=1200&auto=format", "thumb": image.asset->url + "?w=96&h=96&fit=crop&auto=format"}`
+        `*[_type=="product"] | order(order asc){name, "category": coalesce(parentCategory->name, category), grade, shortDescription, description, botanicalName, sourcedFrom, "image": image.asset->url, "overlayImage": image.asset->url + "?w=1200&auto=format", "thumb": image.asset->url + "?w=96&h=96&fit=crop&auto=format"}`
       ),
       sanityFetch(
         `*[_type=="post" && hidden != true] | order(date desc){title, excerpt, category, author, "slug": slug.current, "image": image.asset->url, "thumb": image.asset->url + "?w=96&h=96&fit=crop&auto=format"}`
