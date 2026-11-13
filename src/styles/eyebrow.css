@@ -256,3 +256,26 @@ body .catalogue-search:focus-within { border-color: #272c7d; box-shadow: 0 0 0 3
 body .view-products.btn--ghost { border-width: 1px; font-weight: 400; }
 body .view-products.btn--ghost:hover { background: rgba(39, 44, 125, 0.06); color: var(--color-action-primary, #272c7d); border-color: var(--color-action-primary, #272c7d); }
 body .view-products.btn--ghost:hover img { filter: none; }
+
+/* One icon style across the site: the outlined ("ghost") rounded tile used in the About values grid */
+body .about-feature-row .about-feature-row__icon {
+  box-sizing: border-box;
+  width: 56px;
+  height: 56px;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #d9d9e4;
+  border-radius: 16px;
+}
+body .about-feature-row:hover .about-feature-row__icon { transform: none; }
+body .careers-why__icon {
+  box-sizing: border-box;
+  width: 56px;
+  height: 56px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background: #fff;
+  border: 1px solid #d9d9e4;
+  border-radius: 16px;
+  box-shadow: none;
+}
