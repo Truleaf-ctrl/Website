@@ -305,3 +305,19 @@ body .pager__status { display: none; margin: 0; font-size: 14px; color: #45454c;
 
 /* blog banner: spinach photo, centred crop, graded darker and a touch richer */
 body .blog-banner img { object-position: 50% 50%; filter: brightness(0.58) saturate(1.1) contrast(1.05); }
+
+/* blog: the banner stays pinned while the posts slide up over it, like a curtain */
+body .blog-banner { position: sticky; top: 0; z-index: 0; }
+body .blog-grid {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  margin-top: -1px;
+  border-radius: 28px 28px 0 0;
+  box-shadow: 0 -18px 40px rgba(8, 14, 10, 0.18);
+}
+@media (max-width: 640px) { body .blog-grid { border-radius: 20px 20px 0 0; } }
+@media (prefers-reduced-motion: reduce) {
+  body .blog-banner { position: relative; }
+  body .blog-grid { box-shadow: none; }
+}

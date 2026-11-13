@@ -57,7 +57,7 @@ export default function Blog() {
 
       <main id="main">
 
-      <div className="blog-banner reveal">
+      <div className="blog-banner">
         <img src="/webimg/blog-banner.webp" alt="" />
       </div>
 
