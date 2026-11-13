@@ -663,7 +663,6 @@
 /* packaging / grade rows sit in the same list as the other facts */
 .overlay__spec dd .overlay__spec-line { display: block; }
 .overlay__spec dd .overlay__spec-line + .overlay__spec-line { margin-top: 6px; }
-.overlay__spec dd:has(.overlay__spec-line) { font-weight: 400; font-size: 14px; line-height: 1.5; }
 .overlay__spec:has(.overlay__spec-line) dt { align-self: start; padding-top: 2px; }
 .overlay__chart { margin-top: 8px; }
 .overlay__chart-title { margin: 0 0 10px; font-family: 'Instrument Sans', sans-serif; font-weight: 500; font-size: 12px; letter-spacing: 0.9px; text-transform: uppercase; color: #6b6b76; }
