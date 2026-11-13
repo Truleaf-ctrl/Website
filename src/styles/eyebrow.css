@@ -324,3 +324,12 @@ body .blog-grid {
 
 /* sourcing card sits on a light photo: deepen the glass so the white text stays readable */
 body .sourcing-card { background: linear-gradient(180deg, rgba(14,28,18,.58), rgba(10,20,13,.72)); }
+
+/* sourcing photo: colour grade - deeper, richer greens with a soft shadow toward the card */
+body .sourcing-figure-media img { filter: brightness(0.8) saturate(1.18) contrast(1.06); }
+body .sourcing-figure-media { position: relative; }
+body .sourcing-figure-media::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(90deg, rgba(8,20,12,.45) 0%, rgba(8,20,12,.12) 55%, rgba(8,20,12,0) 100%),
+              linear-gradient(0deg, rgba(8,20,12,.35) 0%, rgba(8,20,12,0) 45%);
+}
