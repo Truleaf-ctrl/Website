@@ -99,9 +99,6 @@ export default function SupplyChain() {
             <Link to="/contact" className="supply-banner__btn supply-banner__btn--solid">
               Talk to Our Team
             </Link>
-            <a href="#supplyServices" className="supply-banner__btn supply-banner__btn--line">
-              Explore Services
-            </a>
           </div>
         </div>
 
@@ -124,9 +121,6 @@ export default function SupplyChain() {
                 sourcing to delivery.
               </h2>
             </div>
-            <Link to="/catalogue" className="btn supply-process__cta">
-              Request Catalogue
-            </Link>
           </div>
 
           <ol className="supply-process__steps reveal-stagger">
