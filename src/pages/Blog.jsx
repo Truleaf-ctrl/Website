@@ -19,7 +19,6 @@ export default function Blog() {
     description: 'Insights on organic sourcing, food safety, compliance and export logistics from the Truleaf team.',
     path: '/blog',
     css: SITE_CSS,
-    bodyClass: 'blog-page',
   });
   useMotion();
 
@@ -57,6 +56,10 @@ export default function Blog() {
       </header>
 
       <main id="main">
+
+      <div className="blog-banner reveal">
+        <img src="/webimg/blog-banner.webp" alt="" />
+      </div>
 
       <section className="blog-grid" id="blogGrid">
         <div key={page} className="content-wrap blog-grid__inner reveal-stagger" id="blogGridInner">

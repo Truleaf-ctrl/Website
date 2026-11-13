@@ -303,10 +303,5 @@ body .pager__status { display: none; margin: 0; font-size: 14px; color: #45454c;
   body .pager__step { padding: 0 12px; }
 }
 
-/* blog banner: centred crop of the spinach photo */
-body .blog-banner img { object-position: 50% 50%; }
-
-/* blog without a banner: the intro leads straight into the posts */
-body.blog-page .about-hero { padding-bottom: 0; }
-body.blog-page .blog-grid { padding-top: 56px; }
-@media (max-width: 640px) { body.blog-page .blog-grid { padding-top: 32px; } }
+/* blog banner: keep the beans in frame on the wide, short crop */
+body .blog-banner img { object-position: 40% 72%; }
