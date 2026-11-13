@@ -51,20 +51,6 @@ function Breadcrumb({ data, onSamePage }) {
   );
 }
 
-function Accordion({ label, text, open = false }) {
-  if (!text) return null;
-  return (
-    <details className="overlay__acc" open={open}>
-      <summary>{label}</summary>
-      <div className="overlay__acc-body">
-        {sentences(text).map((t, i) => (
-          <p key={i}>{t}</p>
-        ))}
-      </div>
-    </details>
-  );
-}
-
 // long descriptions show about three lines, with a toggle for the rest
 function Description({ text }) {
   const [open, setOpen] = useState(false);
@@ -131,6 +117,8 @@ function ProductOverlay({ data, isOpen, onClose }) {
     ['Botanical name', d.productBotanical, true],
     ['Shelf life', d.productShelf],
     ['Storage', d.productStorage],
+    ['Packaging', d.productPackaging, false, true],
+    ['Grade options', d.productGrades, false, true],
     // any extra label/value pairs an editor adds to a single product in Sanity (extraSpecs)
     ...(Array.isArray(d.productExtra) ? d.productExtra : []).map((x) => [x && x.label, x && x.value]),
   ].filter(([label, v]) => label && v);
@@ -172,40 +160,36 @@ function ProductOverlay({ data, isOpen, onClose }) {
             </ul>
             <Description text={d.productDesc} />
             <dl className="overlay__specs" hidden={!facts.length}>
-              {facts.map(([label, v, italic]) => (
+              {facts.map(([label, v, italic, multi]) => (
                 <div key={label} className="overlay__spec">
                   <dt>{label}</dt>
-                  <dd className={italic ? 'is-italic' : ''}>{v}</dd>
+                  <dd className={italic ? 'is-italic' : ''}>
+                    {multi ? sentences(v).map((t, i) => <span className="overlay__spec-line" key={i}>{t}</span>) : v}
+                  </dd>
                 </div>
               ))}
             </dl>
-            <div className="overlay__acc-list">
-              <Accordion label="Available packaging" text={d.productPackaging} open />
-              <Accordion label="Grade options" text={d.productGrades} open />
-              {chart.length > 0 && (
-                <details className="overlay__acc">
-                  <summary>Size &amp; grade chart</summary>
-                  <div className="overlay__acc-body">
-                    <table className="overlay__chart-table">
-                      <thead>
-                        <tr>
-                          <th>Size / caliber</th>
-                          <th>Specification / basis</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {chart.map((r, i) => (
-                          <tr key={i}>
-                            <td>{r.size}</td>
-                            <td>{r.basis || '–'}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </details>
-              )}
-            </div>
+            {chart.length > 0 && (
+              <div className="overlay__chart">
+                <h3 className="overlay__chart-title">Size &amp; grade chart</h3>
+                <table className="overlay__chart-table">
+                  <thead>
+                    <tr>
+                      <th>Size / caliber</th>
+                      <th>Specification / basis</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {chart.map((r, i) => (
+                      <tr key={i}>
+                        <td>{r.size}</td>
+                        <td>{r.basis || '–'}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
             <div className="overlay__actions">
               <Link to="/contact" className="btn btn--primary overlay__cta" onClick={onClose}>
                 Enquire
