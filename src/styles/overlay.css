@@ -290,6 +290,8 @@
 }
 
 .overlay__spec dd.is-italic { font-style: italic; }
+/* the sticky action bar draws the closing line, so the list does not add a second one */
+.overlay__spec:last-child { border-bottom: 0; }
 
 .overlay__block-label {
   font-family: 'Instrument Sans', sans-serif;
@@ -327,6 +329,7 @@
 .overlay__chips li::before { content: '✓'; font-weight: 700; font-size: 12px; }
 
 .overlay__acc-list { display: flex; flex-direction: column; gap: 8px; }
+.overlay__acc-list:empty { display: none; } /* no packaging/grades: no empty gap */
 
 .overlay__acc {
   background: transparent;
@@ -431,7 +434,7 @@
 
   .overlay__image img { aspect-ratio: 16 / 10; }
 
-  .overlay__details { flex: none; }
+  .overlay__details { flex: none; align-self: stretch; width: 100%; }
 }
 
 @media (max-width: 400px) {
