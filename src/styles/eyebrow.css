@@ -167,3 +167,13 @@ body main h3:not([class]) { font-weight: 500; }
 /* Card descriptions use the same regular weight as section descriptions */
 body .catalogue-section__list .category-card__info p,
 body .category-card__info p { font-weight: 400; }
+
+/* Catalogue lists on phones: a little more air between heading, intro and rows */
+@media (max-width: 520px) {
+  body .catalogue-section__intro { gap: 8px; }
+  body .catalogue-section__heading { margin-bottom: 4px; }
+  body .catalogue-section__grid { gap: 28px; }
+  body .catalogue-section__list .category-card { gap: 18px; padding: 24px 0; }
+  body .catalogue-section__list .category-card:first-child { padding-top: 8px; }
+  body .catalogue-section__list .category-card__info { gap: 6px; }
+}
