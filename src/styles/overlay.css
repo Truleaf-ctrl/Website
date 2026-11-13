@@ -677,6 +677,3 @@
   .overlay__title--top { display: block; font-size: 26px; line-height: 1.25; padding-top: 2px; }
   .overlay__details .overlay__head { display: none; }
 }
-
-/* values in regular weight */
-.overlay__spec dd { font-weight: 400; }
