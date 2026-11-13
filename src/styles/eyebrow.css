@@ -163,3 +163,7 @@ body .trending__title,
 body .hero__title,
 body .buying .section-head-title,
 body main h3:not([class]) { font-weight: 500; }
+
+/* Card descriptions use the same regular weight as section descriptions */
+body .catalogue-section__list .category-card__info p,
+body .category-card__info p { font-weight: 400; }
