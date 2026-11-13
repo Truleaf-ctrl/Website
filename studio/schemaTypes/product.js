@@ -49,15 +49,36 @@ export default defineType({
     }),
     defineField({
       name: 'category',
-      title: 'Card label',
-      description: 'Short label on trending cards and in search. Usually the subcategory name.',
+      title: 'Category (card label)',
+      description: 'Short label on trending cards and in search. Pick the subcategory name. If left empty, the Subcategory above is used.',
       type: 'string',
+      options: {
+        layout: 'dropdown',
+        list: [
+          'Coconut Products',
+          'Edible Oils',
+          'Cold-Pressed Oils',
+          'Fruits & Vegetables',
+          'Frozen Fruits & Vegetables',
+          'Pickled & Preserved Vegetables',
+          'Pickles / Cornichons',
+          'Juices & Purees',
+          'Spices & Herbs',
+          'Pulses & Legumes',
+          'Healthy Snacks',
+          'Flavoured Energy Drink',
+          'Ready to Cook Products',
+          'Ready to Drink Beverages',
+          'Ready to Eat Products',
+        ],
+      },
     }),
     defineField({
       name: 'image',
       title: 'Product image',
       type: 'image',
       options: { hotspot: true },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'shortDescription',
@@ -72,6 +93,7 @@ export default defineType({
       description: 'Shown on the product detail overlay',
       type: 'text',
       rows: 4,
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'botanicalName',
@@ -142,6 +164,23 @@ export default defineType({
         ],
         layout: 'grid',
       },
+    }),
+    defineField({
+      name: 'extraSpecs',
+      title: 'Extra specifications',
+      description: 'Optional. Add any extra detail for this product only (for example "Fat content: 17-19%"). Each one appears as another row in the product details.',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          name: 'extraSpec',
+          fields: [
+            defineField({ name: 'label', title: 'Label', type: 'string', validation: (Rule) => Rule.required() }),
+            defineField({ name: 'value', title: 'Value', type: 'string', validation: (Rule) => Rule.required() }),
+          ],
+          preview: { select: { title: 'label', subtitle: 'value' } },
+        },
+      ],
     }),
     defineField({
       name: 'featured',
