@@ -180,5 +180,5 @@ body .category-card__info p { font-weight: 400; }
 
 /* Catalogue hero on phones: less empty space under the search field */
 @media (max-width: 720px) {
-  body .catalogue-hero { padding-bottom: 32px; gap: 48px; }
+  body .catalogue-hero { padding-bottom: 40px; gap: 48px; min-height: 340px; }
 }
