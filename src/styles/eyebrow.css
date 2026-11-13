@@ -191,6 +191,8 @@ body .category-card__info p { font-weight: 400; }
   body .product-row__image { width: 180px; height: 180px; aspect-ratio: 1 / 1; border-radius: 16px; }
   body .product-row__info { width: 100%; gap: 14px; }
   body .product-row__info p { font-size: 15px; line-height: 1.45; }
+  body .product-row__info .view-products { padding: 11px 18px 11px 20px; font-size: 14px; gap: 8px; }
+  body .product-row__info .view-products img { width: 14px; height: 14px; }
 }
 
 /* Category page hero: clear order of importance (small crumb, big title, small meta line, readable lead) */
