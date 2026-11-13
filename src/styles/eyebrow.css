@@ -279,3 +279,6 @@ body .careers-why__icon {
   border-radius: 16px;
   box-shadow: none;
 }
+
+/* mouse / touch users do not see the keyboard focus ring on buttons and links (keyboard users still do) */
+html[data-input="pointer"] body :is(a, button, summary, [role="button"]):focus-visible { outline: none; box-shadow: none; }
