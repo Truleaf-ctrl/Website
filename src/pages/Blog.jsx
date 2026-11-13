@@ -57,11 +57,11 @@ export default function Blog() {
 
       <main id="main">
 
-      <div className="blog-banner">
+      <div className="blog-banner blog-banner--curtain">
         <img src="/webimg/blog-banner.webp" alt="" />
       </div>
 
-      <section className="blog-grid" id="blogGrid">
+      <section className="blog-grid blog-grid--curtain" id="blogGrid">
         <div key={page} className="content-wrap blog-grid__inner reveal-stagger" id="blogGridInner">
           {posts.slice(start, end).map((post) => (
             <BlogCard key={post.slug} post={post} />
