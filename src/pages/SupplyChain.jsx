@@ -179,7 +179,7 @@ export default function SupplyChain() {
       </section>
 
       <section className="cta-photo">
-        <div className="cta-photo__frame reveal">
+        <div className="cta-photo__frame cta-photo__frame--produce reveal">
           <div className="content-wrap cta-photo__inner">
             <div className="cta-photo__copy">
               <p className="cta-photo__eyebrow">Start a project</p>

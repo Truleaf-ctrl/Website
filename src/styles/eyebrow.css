@@ -336,3 +336,6 @@ body .sourcing-figure-media::after {
 
 /* private-label categories: CTA under the grid */
 body .supply-categories__cta { display: flex; justify-content: flex-start; margin-top: 40px; }
+
+/* Retail to Business closing CTA: packed-produce photo */
+body .cta-photo__frame--produce { background: #1f2a1c url('/webimg/cta-packed-produce.webp') center / cover no-repeat; }
