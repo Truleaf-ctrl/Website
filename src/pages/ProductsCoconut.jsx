@@ -80,7 +80,7 @@ function ProductRow({ product: p, categoryTitle, grade, slug, onOpen }) {
       productChart: p.sizeChart || [],
       productShelf: p.shelfLife,
       productStorage: p.storage,
-      productCerts: (p.certifications || []).join(', '),
+      productCerts: [...(p.certifications || []), ...(p.otherCertifications || [])].filter(Boolean).join(', '),
       productExtra: p.extraSpecs || [],
     });
   };
@@ -118,7 +118,7 @@ export default function ProductsCoconut() {
     Promise.all([
       sanityFetch(`*[_type=="category" && slug.current==$slug][0]{name, shortDescription}`, { slug }),
       sanityFetch(
-        `*[_type=="product" && grade==$grade && (parentCategory->slug.current==$slug || $slug in additionalCategories[]->slug.current)] | order(order asc, name asc){name, category, shortDescription, description, botanicalName, sourcedFrom, packaging, gradeDetails, sizeChart, shelfLife, storage, certifications, extraSpecs[]{label, value}, "imageRef": image.asset._ref}`,
+        `*[_type=="product" && grade==$grade && (parentCategory->slug.current==$slug || $slug in additionalCategories[]->slug.current)] | order(order asc, name asc){name, category, shortDescription, description, botanicalName, sourcedFrom, packaging, gradeDetails, sizeChart, shelfLife, storage, certifications, otherCertifications, extraSpecs[]{label, value}, "imageRef": image.asset._ref}`,
         { slug, grade }
       ),
     ])

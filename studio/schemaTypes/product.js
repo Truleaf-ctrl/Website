@@ -166,6 +166,13 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'otherCertifications',
+      title: 'Other certifications',
+      description: 'Optional. Type any certification not in the list above (for example "ISO 22000"). Shown together with the ticked ones.',
+      type: 'array',
+      of: [{ type: 'string' }],
+    }),
+    defineField({
       name: 'extraSpecs',
       title: 'Extra specifications',
       description: 'Optional. Add any extra detail for this product only (for example "Fat content: 17-19%"). Each one appears as another row in the product details.',
