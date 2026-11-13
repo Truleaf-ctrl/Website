@@ -89,7 +89,16 @@
   letter-spacing: 0.2px;
   text-transform: uppercase;
   color: #333;
+  /* wrap between steps, never inside a step, so the underlines stay whole */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 4px;
+  min-width: 0;
 }
+
+.overlay__breadcrumb a,
+.overlay__breadcrumb span { white-space: nowrap; }
 
 .overlay__close {
   display: inline-flex;
@@ -425,6 +434,11 @@
   .overlay__details { flex: none; }
 }
 
+@media (max-width: 400px) {
+  .overlay__breadcrumb { font-size: 11px; letter-spacing: 0; }
+  .overlay__breadcrumb .overlay__sep { margin: 0 5px; }
+}
+
 @media (max-width: 560px) {
   .overlay__panel {
     padding: 20px 16px 28px;
@@ -433,6 +447,9 @@
   }
 
   .overlay__breadcrumb { font-size: 12px; }
+  /* on phones the first step (Products) is dropped so the trail fits beside the Close button without a stray slash; it stays in the main menu */
+  .overlay__breadcrumb > a:first-child,
+  .overlay__breadcrumb > .overlay__sep:nth-child(2) { display: none; }
 
 
   .overlay__image img { aspect-ratio: 4 / 3; }
