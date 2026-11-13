@@ -100,17 +100,31 @@ export default function Home() {
 
   useEffect(() => {
     let alive = true;
-    const loadCategories = sanityFetch(
-      `*[_type=="category" && featured==true] | order(order asc)[0...4]{name, shortDescription, "imageRef": image.asset._ref}`
-    )
-      .then((cats) => alive && setCategories(cats || []))
-      .catch((err) => console.error('Could not load categories from Sanity', err));
-    const loadProducts = sanityFetch(
-      `*[_type=="product" && featured==true] | order(order asc)[0...4]{name, category, grade, "categorySlug": parentCategory->slug.current, shortDescription, description, botanicalName, sourcedFrom, packaging, gradeDetails, sizeChart, shelfLife, storage, certifications, "imageRef": image.asset._ref}`
-    )
-      .then((items) => alive && setProducts(items || []))
-      .catch((err) => console.error('Could not load products from Sanity', err));
-    Promise.all([loadCategories, loadProducts]).then(() => alive && setRowsReady(true));
+    const CAT = '{name, shortDescription, "imageRef": image.asset._ref}';
+    const PROD =
+      '{name, category, grade, "categorySlug": parentCategory->slug.current, shortDescription, description, botanicalName, sourcedFrom, packaging, gradeDetails, sizeChart, shelfLife, storage, certifications, otherCertifications, extraSpecs[]{label,value}, "imageRef": image.asset._ref}';
+    // the admin's picks (Studio > "Home page: featured items"), in the order they were arranged
+    const picks = sanityFetch(
+      `*[_type=="homeFeatured"][0]{"categories": featuredCategories[]->${CAT}, "products": trendingProducts[]->${PROD}}`
+    ).catch((err) => {
+      console.error('Could not load featured items from Sanity', err);
+      return null;
+    });
+    // fallback while nothing has been picked yet: the older "Featured" tick-box + display order
+    const legacy = (type, shape) =>
+      sanityFetch(`*[_type=="${type}" && featured==true] | order(order asc)[0...4]${shape}`).catch(() => []);
+    picks
+      .then(async (doc) => {
+        const cats = (doc?.categories || []).filter(Boolean).slice(0, 4);
+        const prods = (doc?.products || []).filter(Boolean).slice(0, 4);
+        return [cats.length ? cats : await legacy('category', CAT), prods.length ? prods : await legacy('product', PROD)];
+      })
+      .then(([cats, prods]) => {
+        if (!alive) return;
+        setCategories(cats || []);
+        setProducts(prods || []);
+        setRowsReady(true);
+      });
     return () => {
       alive = false;
     };
@@ -481,7 +495,8 @@ export default function Home() {
                     productChart: p.sizeChart || [],
                     productShelf: p.shelfLife,
                     productStorage: p.storage,
-                    productCerts: (p.certifications || []).join(', '),
+                    productCerts: [...(p.certifications || []), ...(p.otherCertifications || [])].filter(Boolean).join(', '),
+                    productExtra: p.extraSpecs || [],
                   })
                 }
               />

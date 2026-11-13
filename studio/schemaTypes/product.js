@@ -192,6 +192,7 @@ export default defineType({
     defineField({
       name: 'featured',
       title: 'Featured (show in Trending Products)',
+      hidden: true, // replaced by "Home page: featured items" in the sidebar; old value kept as a fallback
       type: 'boolean',
       initialValue: false,
     }),
