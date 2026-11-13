@@ -131,7 +131,9 @@ function ProductOverlay({ data, isOpen, onClose }) {
     ['Botanical name', d.productBotanical, true],
     ['Shelf life', d.productShelf],
     ['Storage', d.productStorage],
-  ].filter(([, v]) => v);
+    // any extra label/value pairs an editor adds to a single product in Sanity (extraSpecs)
+    ...(Array.isArray(d.productExtra) ? d.productExtra : []).map((x) => [x && x.label, x && x.value]),
+  ].filter(([label, v]) => label && v);
 
   const certs = String(d.productCerts || '')
     .split(',')

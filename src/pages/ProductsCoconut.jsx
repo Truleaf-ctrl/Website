@@ -81,6 +81,7 @@ function ProductRow({ product: p, categoryTitle, grade, slug, onOpen }) {
       productShelf: p.shelfLife,
       productStorage: p.storage,
       productCerts: (p.certifications || []).join(', '),
+      productExtra: p.extraSpecs || [],
     });
   };
   // the whole product row is the click target (the "View Details" button included)
@@ -117,7 +118,7 @@ export default function ProductsCoconut() {
     Promise.all([
       sanityFetch(`*[_type=="category" && slug.current==$slug][0]{name, shortDescription}`, { slug }),
       sanityFetch(
-        `*[_type=="product" && grade==$grade && (parentCategory->slug.current==$slug || $slug in additionalCategories[]->slug.current)] | order(order asc, name asc){name, category, shortDescription, description, botanicalName, sourcedFrom, packaging, gradeDetails, sizeChart, shelfLife, storage, certifications, "imageRef": image.asset._ref}`,
+        `*[_type=="product" && grade==$grade && (parentCategory->slug.current==$slug || $slug in additionalCategories[]->slug.current)] | order(order asc, name asc){name, category, shortDescription, description, botanicalName, sourcedFrom, packaging, gradeDetails, sizeChart, shelfLife, storage, certifications, extraSpecs[]{label, value}, "imageRef": image.asset._ref}`,
         { slug, grade }
       ),
     ])
