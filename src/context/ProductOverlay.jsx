@@ -208,12 +208,6 @@ function ProductOverlay({ data, isOpen, onClose }) {
               <Link to="/contact" className="btn btn--primary overlay__cta" onClick={onClose}>
                 Enquire
               </Link>
-              <a
-                className="overlay__cta-alt"
-                href={`mailto:info@truleaf.in?subject=${encodeURIComponent(`Spec sheet request: ${d.productName || 'product'}`)}`}
-              >
-                Request spec sheet
-              </a>
             </div>
           </div>
         </div>

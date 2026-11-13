@@ -654,3 +654,8 @@
   .overlay__breadcrumb { flex-direction: column; align-items: flex-start; row-gap: 0; }
   .overlay__breadcrumb .overlay__sep { display: none; }
 }
+
+/* single Enquire action: tighter space below the button group */
+.overlay__panel { padding-bottom: max(16px, env(safe-area-inset-bottom)); }
+.overlay__actions { padding: 12px 0 0; }
+@media (min-width: 900px) { .overlay__panel { padding-bottom: 32px; } }
