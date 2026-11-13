@@ -8,48 +8,12 @@ import { Link, useLocation } from 'react-router-dom';
 // data keys: productName, productCategory, productImage, productDesc, productBotanical, productSourced,
 // plus the optional productPackaging, productGrades, productShelf, productStorage,
 // productCerts (comma-separated) and productChart (array of { size, basis }),
-// productGrade and productCategorySlug (enable the full breadcrumb).
 
 const OverlayContext = createContext({ openProduct: () => {}, closeProduct: () => {} });
 export const useProductOverlay = () => useContext(OverlayContext);
 
 // longer text goes into expandable rows, one sentence per line
 const sentences = (text) => String(text || '').split(/(?<=\.)\s+(?=[A-Z])/);
-
-function Breadcrumb({ data, onSamePage }) {
-  const sep = (
-    <span className="overlay__sep" aria-hidden="true">
-      /
-    </span>
-  );
-  const category = data.productCategory || '';
-  if (data.productGrade && data.productCategorySlug) {
-    const label = data.productGrade === 'conventional' ? 'Conventional Ingredients' : 'Organic Ingredients';
-    const listing = `/products-coconut?category=${encodeURIComponent(data.productCategorySlug)}&grade=${data.productGrade}`;
-    return (
-      <>
-        <Link to="/catalogue">Products</Link>
-        {sep}
-        <Link to={`/catalogue#${data.productGrade}`}>{label}</Link>
-        {sep}
-        <Link to={listing} className="is-current" onClick={(e) => onSamePage(e, listing)}>
-          {category}
-        </Link>
-      </>
-    );
-  }
-  return (
-    <>
-      <Link to="/catalogue">Products</Link>
-      {category && (
-        <>
-          {sep}
-          <span className="is-current">{category}</span>
-        </>
-      )}
-    </>
-  );
-}
 
 // long descriptions show about three lines, with a toggle for the rest
 function Description({ text }) {
@@ -68,7 +32,6 @@ function Description({ text }) {
 }
 
 function ProductOverlay({ data, isOpen, onClose }) {
-  const location = useLocation();
   const closeRef = useRef(null);
   const d = data || {};
 
@@ -103,15 +66,6 @@ function ProductOverlay({ data, isOpen, onClose }) {
     return () => document.removeEventListener('keydown', onKey);
   }, [isOpen]);
 
-  // the breadcrumb's last step points at the page the overlay is open on: just close the overlay
-  const onSamePage = (e, href) => {
-    const target = new URL(href, window.location.origin);
-    if (target.pathname === location.pathname && target.search === location.search) {
-      e.preventDefault();
-      onClose();
-    }
-  };
-
   const facts = [
     ['Origin', d.productSourced],
     ['Botanical name', d.productBotanical, true],
@@ -135,7 +89,6 @@ function ProductOverlay({ data, isOpen, onClose }) {
       <div className="overlay__backdrop" onClick={onClose}></div>
       <div className="overlay__panel" role="dialog" aria-modal="true" aria-labelledby="overlayTitle" ref={panelRef}>
         <div className="overlay__top">
-          <p className="overlay__breadcrumb">{data && <Breadcrumb data={d} onSamePage={onSamePage} />}</p>
           <button className="overlay__close" type="button" aria-label="Close" onClick={onClose} ref={closeRef}>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M2 2l10 10M12 2L2 12" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />

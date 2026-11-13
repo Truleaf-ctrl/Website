@@ -667,3 +667,6 @@
 .overlay__spec:has(.overlay__spec-line) dt { align-self: start; padding-top: 2px; }
 .overlay__chart { margin-top: 8px; }
 .overlay__chart-title { margin: 0 0 10px; font-family: 'Instrument Sans', sans-serif; font-weight: 500; font-size: 12px; letter-spacing: 0.9px; text-transform: uppercase; color: #6b6b76; }
+
+/* no breadcrumb in the sheet: the close button sits alone, top right */
+.overlay__top { justify-content: flex-end; }
