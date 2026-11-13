@@ -147,3 +147,19 @@ body .cta-photo__fact-note { color: #fff; }
 /* Category and trend card titles: same Lora weight as the other card titles and section headings */
 body .category-card__info h3,
 body .trend-card h3 { font-weight: 500; }
+
+/* One Lora weight (500) for every serif heading on the site */
+body .sourcing-title,
+body .mission-title,
+body .section-head-title,
+body .supply-process__title,
+body .supply-heading,
+body .cta-photo__title,
+body .supply-brief__title,
+body .about-origin__title,
+body .about-heading,
+body .careers-open__title,
+body .trending__title,
+body .hero__title,
+body .buying .section-head-title,
+body main h3:not([class]) { font-weight: 500; }
