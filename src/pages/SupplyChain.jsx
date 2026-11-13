@@ -26,7 +26,7 @@ export default function SupplyChain() {
     title: 'Retail-Ready Product Development | Truleaf',
     description:
       'From product idea to retail-ready: sourcing, R&D, packaging, certification and logistics handled by Truleaf.',
-    path: '/retail-to-business',
+    path: '/ready-to-retail',
     css: SITE_CSS,
   });
   useReveal();

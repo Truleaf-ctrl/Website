@@ -43,8 +43,9 @@ export default function App() {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/products-coconut" element={<ProductsCoconut />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/retail-to-business" element={<SupplyChain />} />
-          <Route path="/supply-chain" element={<Navigate to="/retail-to-business" replace />} />
+          <Route path="/ready-to-retail" element={<SupplyChain />} />
+          <Route path="/retail-to-business" element={<Navigate to="/ready-to-retail" replace />} />
+          <Route path="/supply-chain" element={<Navigate to="/ready-to-retail" replace />} />
         </Route>
         <Route path="/prd-template" element={<PrdTemplate />} />
         <Route path="/project-prd-template" element={<ProjectPrdTemplate />} />
