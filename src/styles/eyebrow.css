@@ -321,3 +321,6 @@ body .blog-grid {
   body .blog-banner { position: relative; }
   body .blog-grid { box-shadow: none; }
 }
+
+/* sourcing card sits on a light photo: deepen the glass so the white text stays readable */
+body .sourcing-card { background: linear-gradient(180deg, rgba(14,28,18,.58), rgba(10,20,13,.72)); }
