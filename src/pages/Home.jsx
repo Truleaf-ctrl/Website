@@ -250,8 +250,8 @@ export default function Home() {
               <img
                 loading="lazy"
                 decoding="async"
-                src="/assets/images/about-hero-barley.webp"
-                alt="Green barley field at dusk"
+                src="/assets/images/sourcing-lime.webp"
+                alt="Green limes growing on the branch"
               />
             </div>
             <div className="sourcing-card">
