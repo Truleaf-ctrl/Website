@@ -9,6 +9,7 @@ import { SITE_CSS } from '../styles/site';
 import { sanityFetch, urlForImageRef } from '../lib/sanity';
 import { useProductOverlay } from '../context/ProductOverlay';
 import Pagination, { scrollToList, usePageParam } from '../components/Pagination';
+import { SEO } from '../lib/seoPages';
 
 // the list rows are tall, so ten per page keeps each page a comfortable scroll
 const PRODUCT_PAGE_SIZE = 10;
@@ -143,8 +144,8 @@ export default function ProductsCoconut() {
   const toTop = () => scrollToList('productGrid');
 
   usePage({
-    title: ready ? `${title} | ${gradeLabel} | Truleaf` : 'Organic Coconut Products | Truleaf',
-    description: 'Organic coconut products sourced from certified Indian farms, supplied in export-grade volumes.',
+    title: ready ? `${title} | ${gradeLabel} | Truleaf` : SEO['/products-coconut'].title,
+    description: SEO['/products-coconut'].description,
     path: '/products-coconut',
     css: SITE_CSS,
   });

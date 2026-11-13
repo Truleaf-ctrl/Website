@@ -7,6 +7,7 @@ import useMotion from '../hooks/useMotion';
 import { SITE_CSS } from '../styles/site';
 import { EMAIL_PATTERN, sendForm } from '../lib/forms';
 import { sanityFetch } from '../lib/sanity';
+import { SEO } from '../lib/seoPages';
 
 const TEAM_ORDER = ['Sourcing', 'Quality', 'R&D', 'Operations', 'Marketing'];
 
@@ -56,8 +57,8 @@ const fileOk = (f) => !!f && f.size <= MAX_FILE && /\.(pdf|docx?)$/i.test(f.name
 
 export default function Careers() {
   usePage({
-    title: 'Careers | Truleaf',
-    description: 'Join Truleaf and work across sourcing, quality, R&D and export operations. See open roles and apply.',
+    title: SEO['/careers'].title,
+    description: SEO['/careers'].description,
     path: '/careers',
     css: SITE_CSS,
     bodyClass: 'careers',
@@ -424,7 +425,7 @@ export default function Careers() {
 
               <div className="contact-field careers-form__full">
                 <label htmlFor="careerNote">
-                  Why Trueleaf? <span className="careers-optional">(optional)</span>
+                  Why Truleaf? <span className="careers-optional">(optional)</span>
                 </label>
                 <textarea
                   id="careerNote"

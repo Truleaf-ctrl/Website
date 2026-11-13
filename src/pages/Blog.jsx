@@ -9,14 +9,15 @@ import useReveal from '../hooks/useReveal';
 import useMotion from '../hooks/useMotion';
 import { sanityFetch } from '../lib/sanity';
 import { SITE_CSS } from '../styles/site';
+import { SEO } from '../lib/seoPages';
 
 // 9 = three full rows of the three-column grid
 const BLOG_PAGE_SIZE = 9;
 
 export default function Blog() {
   usePage({
-    title: 'Blog | Truleaf',
-    description: 'Insights on organic sourcing, food safety, compliance and export logistics from the Truleaf team.',
+    title: SEO['/blog'].title,
+    description: SEO['/blog'].description,
     path: '/blog',
     css: SITE_CSS,
   });

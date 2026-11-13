@@ -8,6 +8,7 @@ import useReveal, { revealAllStagger } from '../hooks/useReveal';
 import useMotion from '../hooks/useMotion';
 import { SITE_CSS } from '../styles/site';
 import { PRODUCT_LISTING_URL, sanityFetch, urlForImageRef } from '../lib/sanity';
+import { SEO } from '../lib/seoPages';
 
 // Grade (Organic / Conventional Ingredients) -> subcategories, all from Sanity: Category documents with
 // "Show on Product Catalogue" ticked, ordered by their Organic / Conventional display order.
@@ -86,9 +87,8 @@ function CategoryList({ id, items, grade }) {
 
 export default function Catalogue() {
   usePage({
-    title: 'Product Catalogue | Truleaf',
-    description:
-      "Browse Truleaf's range of organic fresh and processed produce, ingredients and value-added products for global buyers.",
+    title: SEO['/catalogue'].title,
+    description: SEO['/catalogue'].description,
     path: '/catalogue',
     css: SITE_CSS,
   });

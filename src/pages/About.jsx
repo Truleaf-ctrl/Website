@@ -5,12 +5,12 @@ import usePage from '../hooks/usePage';
 import useReveal from '../hooks/useReveal';
 import useMotion from '../hooks/useMotion';
 import { SITE_CSS } from '../styles/site';
+import { SEO } from '../lib/seoPages';
 
 export default function About() {
   usePage({
-    title: 'About Us | Truleaf',
-    description:
-      'Meet Truleaf: how we build trust in organic sourcing through certified farmer partnerships, full traceability and transparent documentation.',
+    title: SEO['/about'].title,
+    description: SEO['/about'].description,
     path: '/about',
     css: SITE_CSS,
   });

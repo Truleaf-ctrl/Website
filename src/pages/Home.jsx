@@ -18,6 +18,7 @@ import {
 import { PRODUCT_LISTING_URL, sanityFetch, urlForImageRef } from '../lib/sanity';
 import { HOME_CSS } from '../styles/home';
 import { useProductOverlay } from '../context/ProductOverlay';
+import { SEO } from '../lib/seoPages';
 
 const TITLE = 'Truleaf | Organic Fruit, Vegetable & Ingredient Exporter from India';
 const DESCRIPTION =
@@ -34,7 +35,15 @@ const STRUCTURED_DATA = {
       logo: 'https://truleaf.in/assets/icons/logo.svg',
       description:
         'Exporter of traceable, certified organic fresh and processed fruits, vegetables and ingredients from India.',
-      address: { '@type': 'PostalAddress', streetAddress: '124 Export Plaza, Trade District', addressCountry: 'IN' },
+      email: 'info@truleaf.in',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '1A-1B Neem Square, KRG Nagar Main Street, Ganapathy',
+        addressLocality: 'Coimbatore',
+        addressRegion: 'Tamil Nadu',
+        postalCode: '641006',
+        addressCountry: 'IN',
+      },
     },
     {
       '@type': 'WebSite',
@@ -80,7 +89,7 @@ function MissionTitle({ split }) {
 }
 
 export default function Home() {
-  usePage({ title: TITLE, description: DESCRIPTION, path: '/', css: HOME_CSS });
+  usePage({ title: SEO['/'].title, description: SEO['/'].description, path: '/', css: HOME_CSS });
   const { openProduct } = useProductOverlay();
 
   /* featured categories + trending products: both lists come from Sanity (admin controls them in the Studio);

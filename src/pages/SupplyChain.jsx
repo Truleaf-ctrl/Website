@@ -9,6 +9,7 @@ import useMotion from '../hooks/useMotion';
 import { SITE_CSS } from '../styles/site';
 import { sanityFetch, urlForImageRef } from '../lib/sanity';
 import { sendForm } from '../lib/forms';
+import { SEO } from '../lib/seoPages';
 
 const BRIEF_LABEL = 'Request a Callback';
 
@@ -23,9 +24,8 @@ const BANNER_CARDS = [
 
 export default function SupplyChain() {
   usePage({
-    title: 'Retail-Ready Product Development | Truleaf',
-    description:
-      'From product idea to retail-ready: sourcing, R&D, packaging, certification and logistics handled by Truleaf.',
+    title: SEO['/ready-to-retail'].title,
+    description: SEO['/ready-to-retail'].description,
     path: '/ready-to-retail',
     css: SITE_CSS,
   });

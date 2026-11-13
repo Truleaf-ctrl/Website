@@ -62,9 +62,9 @@ export default function BlogPost() {
   );
 
   usePage({
-    title: post ? `${post.title} — Trueleaf Blog` : 'Blog — Trueleaf',
+    title: post ? `${post.title} | Truleaf Blog` : 'Blog | Truleaf',
     description: post ? post.excerpt || '' : '',
-    path: null,
+    path: post ? `/blog-post?post=${post.slug}` : null,
     type: 'article',
     image: post ? post.image || '' : '',
     article,

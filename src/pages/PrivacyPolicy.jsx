@@ -4,6 +4,7 @@ import usePage from '../hooks/usePage';
 import useReveal from '../hooks/useReveal';
 import useMotion from '../hooks/useMotion';
 import { SITE_CSS } from '../styles/site';
+import { SEO } from '../lib/seoPages';
 
 const LAST_UPDATED = '10 November 2026';
 
@@ -232,9 +233,8 @@ const CONTACT = [
 
 export default function PrivacyPolicy() {
   usePage({
-    title: 'Privacy & Cookie Policy | Truleaf',
-    description:
-      'How Truleaf Foods Private Limited collects, uses, stores, shares and protects personal data, and how we use cookies on truleaf.in.',
+    title: SEO['/privacy-policy'].title,
+    description: SEO['/privacy-policy'].description,
     path: '/privacy-policy',
     css: SITE_CSS,
   });

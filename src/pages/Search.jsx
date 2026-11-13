@@ -56,7 +56,7 @@ export default function Search() {
   const [tab, setTab] = useState('all');
 
   usePage({
-    title: query ? `“${query}” — Search — Trueleaf` : 'Search | Truleaf',
+    title: query ? `“${query}” | Search | Truleaf` : 'Search | Truleaf',
     description: 'Search Truleaf products and articles.',
     path: '/search',
     robots: 'noindex, follow',

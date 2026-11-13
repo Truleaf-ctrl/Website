@@ -7,11 +7,12 @@ import useReveal from '../hooks/useReveal';
 import useMotion from '../hooks/useMotion';
 import { SITE_CSS } from '../styles/site';
 import { EMAIL_PATTERN, sendForm } from '../lib/forms';
+import { SEO } from '../lib/seoPages';
 
 export default function Contact() {
   usePage({
-    title: 'Contact Us | Request a Quote | Truleaf',
-    description: 'Talk to the Truleaf sourcing team. Request a quote or sample for organic produce and ingredients.',
+    title: SEO['/contact'].title,
+    description: SEO['/contact'].description,
     path: '/contact',
     css: SITE_CSS,
   });

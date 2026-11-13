@@ -5,6 +5,7 @@ import usePage from '../hooks/usePage';
 import useReveal from '../hooks/useReveal';
 import useMotion from '../hooks/useMotion';
 import { SITE_CSS } from '../styles/site';
+import { SEO } from '../lib/seoPages';
 
 const SPEAK_UP_MAIL = 'mailto:info@truleaf.in?subject=Speak%20Up';
 
@@ -50,9 +51,8 @@ const REPORTABLE = [
 
 export default function Company() {
   usePage({
-    title: 'Company | Truleaf',
-    description:
-      'Our Code & Policies and Speak Up: the standards Truleaf holds itself to, and how to raise a concern safely.',
+    title: SEO['/company'].title,
+    description: SEO['/company'].description,
     path: '/company',
     css: SITE_CSS,
   });
