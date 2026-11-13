@@ -670,3 +670,11 @@
 
 /* no breadcrumb in the sheet: the close button sits alone, top right */
 .overlay__top { justify-content: flex-end; }
+
+/* name first on tablets and phones: it sits in the top bar beside the close button */
+.overlay__title--top { display: none; margin: 0; }
+@media (max-width: 900px) {
+  .overlay__top { justify-content: space-between; align-items: flex-start; }
+  .overlay__title--top { display: block; font-size: 26px; line-height: 1.25; padding-top: 2px; }
+  .overlay__details .overlay__head { display: none; }
+}

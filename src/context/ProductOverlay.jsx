@@ -89,6 +89,10 @@ function ProductOverlay({ data, isOpen, onClose }) {
       <div className="overlay__backdrop" onClick={onClose}></div>
       <div className="overlay__panel" role="dialog" aria-modal="true" aria-labelledby="overlayTitle" ref={panelRef}>
         <div className="overlay__top">
+          {/* phones: the name leads, beside the close button; the heading further down is hidden there */}
+          <p className="overlay__title overlay__title--top" aria-hidden="true">
+            {d.productName || ''}
+          </p>
           <button className="overlay__close" type="button" aria-label="Close" onClick={onClose} ref={closeRef}>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M2 2l10 10M12 2L2 12" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
