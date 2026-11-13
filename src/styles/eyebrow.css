@@ -303,5 +303,5 @@ body .pager__status { display: none; margin: 0; font-size: 14px; color: #45454c;
   body .pager__step { padding: 0 12px; }
 }
 
-/* blog banner: keep the beans in frame on the wide, short crop */
-body .blog-banner img { object-position: 40% 72%; }
+/* blog banner: spinach photo, centred crop, graded darker and a touch richer */
+body .blog-banner img { object-position: 50% 50%; filter: brightness(0.58) saturate(1.1) contrast(1.05); }
