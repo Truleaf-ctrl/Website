@@ -4,39 +4,39 @@ export const SITE = 'https://truleaf.in';
 
 export const SEO = {
   '/': {
-    title: 'Truleaf | Organic Fruit, Vegetable & Ingredient Exporter from India',
+    title: 'Organic Food Exporter India | Fruits & Vegetables | Truleaf',
     description:
-      'Traceable, certified organic fruits, vegetables and bulk ingredients, sourced direct from Indian farmer groups and shipped worldwide. Request a quote or sample.',
+      'Organic food exporter in India: traceable, certified organic fruits, vegetables, coconut products and bulk ingredients shipped worldwide. Request a quote.',
     h1: 'Organic fruit, vegetable and ingredient exporter from India',
   },
   '/about': {
-    title: 'About Truleaf | Certified Organic Sourcing from India',
+    title: 'About Truleaf | Organic Exporter in Coimbatore, India',
     description:
-      'Meet Truleaf: how we build trust in organic sourcing through certified farmer partnerships, full traceability and transparent documentation.',
+      'Truleaf is a Coimbatore-based organic food exporter. We build trust through certified farmer partnerships, full traceability and transparent documentation.',
     h1: 'About Truleaf',
   },
   '/products-coconut': {
-    title: 'Organic Coconut Products Exporter from India | Truleaf',
+    title: 'Organic Coconut Exporter India | Oil & Desiccated | Truleaf',
     description:
-      'Organic coconut products sourced from certified Indian farms, supplied in export-grade volumes: coconut oil, desiccated coconut, coconut milk and more.',
+      'Organic coconut oil, desiccated coconut, coconut butter and fresh coconut from certified Indian farms, supplied to importers in export-grade volumes.',
     h1: 'Organic coconut products',
   },
   '/catalogue': {
-    title: 'Product Catalogue | Organic Fruits, Vegetables & Ingredients | Truleaf',
+    title: 'Product Catalogue | Organic Ingredients India | Truleaf',
     description:
-      "Browse Truleaf's range of organic fresh and processed produce, ingredients and value-added products for global buyers.",
+      'Browse our range: coconut products, cold-pressed oils, frozen fruits and vegetables, pickles, purees, spices, pulses, snacks and ready foods for global buyers.',
     h1: 'Product Catalogue',
   },
   '/ready-to-retail': {
-    title: 'Ready to Retail | Private Label Food Manufacturing from India | Truleaf',
+    title: 'Private Label Food Manufacturer India | Truleaf',
     description:
-      'Turn your product idea into a shelf-ready pack. Truleaf handles sourcing, formulation, compliance and private-label production for pickles, beverages, snacks, ready-to-cook and ready-to-eat foods.',
+      'Turn your idea into a shelf-ready pack. Private label manufacturing in India: sourcing, compliance and packing for pickles, beverages, snacks and ready foods.',
     h1: "Got a product idea? We'll make it retail-ready.",
   },
   '/blog': {
-    title: 'Blog | Organic Sourcing, Food Ingredients & Export Insights | Truleaf',
+    title: 'Blog | Organic Sourcing & Clean-Label Ingredients | Truleaf',
     description:
-      'Insights on organic sourcing, clean-label ingredients, food safety, compliance and export logistics from the Truleaf team.',
+      'Insights for food businesses on organic sourcing, clean-label ingredients, product development, food safety, compliance and export logistics.',
     h1: 'Our Blog',
   },
   '/careers': {
@@ -51,8 +51,8 @@ export const SEO = {
     h1: 'Doing business the way food should be grown: honestly.',
   },
   '/contact': {
-    title: 'Contact Us | Request a Quote or Sample | Truleaf',
-    description: 'Talk to the Truleaf sourcing team. Request a quote or sample for organic produce and ingredients.',
+    title: 'Contact Truleaf | Request a Quote or Sample',
+    description: 'Talk to the Truleaf sourcing team in Coimbatore. Request a quote or sample for organic produce, coconut products and bulk ingredients.',
     h1: "Let's talk sourcing.",
   },
   '/privacy-policy': {
